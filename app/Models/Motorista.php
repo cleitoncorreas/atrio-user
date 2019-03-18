@@ -9,10 +9,12 @@ class Motorista extends Model
     protected $connection = 'another';
 
     protected $fillable = [
+        'id_funcionario',
         'matricula_empresa',
         'foto',
         'cnh',
-        'validade'
+        'validade',
+        'id_situacao'
     ];
 
     public function funcionario()

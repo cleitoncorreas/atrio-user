@@ -290,7 +290,8 @@
                             <a href="{{ route('login.out') }}" class="animated zoomInDown gradient-45deg-purple-deep-orange gradient-shadow waves-effect waves-light btn border-round right">Encerrar</a>
                     </div>
                 
-                    <script>
+                    @section('js')
+                        <script>
                             function PrintDiv(div)
                             {
                                 $('#div-print').printElement(/*{printMode:'popup'}*/);
@@ -302,7 +303,8 @@
                                 tela_impressao.window.print();
                                 tela_impressao.window.close();
                             }
-                    </script>
+                        </script>
+                    @stop
 
                     
                 @break

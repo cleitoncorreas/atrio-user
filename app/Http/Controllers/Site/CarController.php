@@ -8,6 +8,9 @@ use App\Models\Motorista;
 use App\Models\Veiculo;
 use App\Models\Funcionario;
 use App\Models\Localidade;
+use App\Models\Eventos_Veiculo;
+use DateTime;
+use App\Models\eventosVeiculo;
 
 class CarController extends Controller
 {
@@ -30,8 +33,14 @@ class CarController extends Controller
     */
     public function out()
     {
-        session(['status' => 'SAÍDA']);
-        return view('site.pages.services.car.out.index');
+        if((session('count_driver'))>0){
+            session(['status' => 'SAÍDA']);
+            return view('site.pages.services.car.out.index');
+        } else {
+            session(['driverYn' => 'no']);
+            return redirect()->intended('services/car/out/list/drivers');
+        }
+        
     }
 
     public function in()
@@ -129,6 +138,19 @@ class CarController extends Controller
 
     public function confirm(Request $request)
     {
+        
+        $evento_veiculo = new eventosVeiculo();
+        $evento_veiculo->id_emissor        = session('id_user');
+        $evento_veiculo->id_motorista      = session('id_driver');
+        $evento_veiculo->id_veiculo        = session('id_car');
+        $evento_veiculo->id_localidade     = session('id_place');
+        $evento_veiculo->id_status         = 'S';
+        $evento_veiculo->id_situacao       = 'A';
+        $evento_veiculo->data_hora_saida   = now();
+        $evento_veiculo->data_hora_entrada = null;
+        $evento_veiculo->timestamps = false; 
+        $evento_veiculo->save();
+
         return redirect()->route('services.car.out.receipt');
     }
 

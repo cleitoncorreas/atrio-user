@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Session;
 use App\Models\Funcionario;
+use App\Models\Motorista;
 
 class LoginController extends Controller
 {
@@ -46,6 +47,7 @@ class LoginController extends Controller
         if (Auth::attempt(['cpf' => $user, 'data_nascimento' => $password]))
         {
             $funcionario = Funcionario::where('cpf','=',$user)->firstOrFail();
+            session(['count_driver' => Motorista::where('id_funcionario','=',$funcionario->id)->count()]);
             session(['user' => $funcionario->nome]);
             session(['id_user' => $funcionario->id]);
             return redirect()->intended('services');

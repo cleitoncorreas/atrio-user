@@ -105,7 +105,7 @@
                 <i class="ion ion-ios-contact-outline prefix pt-5"></i>
                 <!--<i class="material-icons prefix pt-5">person_outline</i>-->
                 <input class="cpf" autocomplete="off" placeholder="Ex:. 11122233344" name="username" id="username" type="text" value="">
-                <label id="user" for="username"><span style="color:red">*</span> Usuário (CPF)</label>
+                <label id="user" for="username"  style="font-size: 20px"><span style="color:red">*</span> Usuário (CPF)</label>
             </div>
         </div>
         <div class="row margin">
@@ -113,15 +113,15 @@
                 <i class="ion ion-android-lock prefix pt-5"></i>
                 <!--<i class="material-icons prefix pt-5">lock_outline</i>-->
                 <input class="date" placeholder="Ex:. 22122019" name="password" id="password" type="password" value="">
-                <label id="pass" for="password"><span style="color:red">*</span> Senha (Nascimento)</label>
+                <label id="pass" for="password" style="font-size: 20px"><span style="color:red">*</span> Senha (Nascimento)</label>
             </div>
         </div>
         
 
         @if (Session::has('alert-danger'))
             <div class="row margin center card-panel border-round z-depth-5">
-                <div class="alert alert-warning light offset-s3 font-weight-600" style="color:red">
-                    <i class="ion ion-alert-circled small"></i> {{ session('alert-danger') }} <a class="font-weight-100" href="{{ route('login') }}"><u> Fechar</u></a>
+                <div class="alert alert-warning light offset-s3 font-weight-100" style="color:red">
+                    <i class="ion ion-alert-circled" style="font-size: 30px" ></i><span> {{ session('alert-danger') }} </span><a class="font-weight-100" href="{{ route('login') }}"><u> Fechar</u></a>
                 </div>
             </div>
         @endif

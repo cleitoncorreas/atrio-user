@@ -44,15 +44,18 @@
   </head>
 
   <style>
-    h3, h5, a{
+    h3, h5, a,button,label,p,span{
         font-family: Google Sans;
     }  
     h4{
         font-family: Roboto;
     }  
+
   </style>
 
   <body class="@yield('background','gradient-45deg-indigo-blue')" style="justify-content:center">
+
+    
 
       <div style="bottom: 50px; right: 50px;visibility:@yield('button-reset-visibility')" class="fixed-action-btn direction-top">
         <a id="menu" href="{{ route('login.out') }}" class="btn-floating waves-effect waves-light btn-large white gradient-shadow z-depth-5"><i class="black-text fa-spin material-icons">autorenew</i></a>
@@ -78,6 +81,7 @@
     <script src="{{asset('./js/jquery-mask/dist/jquery.mask.min.js')}}"></script>
     <!-- print element -->
     <script src="{{asset('./js/printElement-master/dist/jquery.printelement.min.js')}}"></script>
+
 
     @yield('js')
 

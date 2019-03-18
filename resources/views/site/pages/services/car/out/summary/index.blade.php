@@ -10,8 +10,8 @@
 @section('title-color','purple')
 @section('subtitle-grid', 'resumo das informações selecionadas')
 
-@section('button-summary-login-href','/login/out')
-@section('button-summary-login-color','gradient-45deg-purple-deep-orange')
+@section('button-summary-login-href','')
+@section('button-summary-login-color','gradient-45deg-blue-grey-blue-grey')
 @section('button-summary-service-href',''/*'/services'*/)
 @section('button-summary-service-color','gradient-45deg-blue-grey-blue-grey')
 @section('button-summary-status-href',''/*'/services/car'*/)
@@ -25,3 +25,17 @@
 
 @section('button-summary-confirm-action','/services/car/out/summary/confirm')
 @section('button-summary-confirm-color','gradient-45deg-purple-deep-orange')
+
+@section('js')
+    <script>    
+    
+        document.addEventListener("DOMContentLoaded", function(){
+        $('.preloader-background').delay(1700).fadeOut('slow');
+        
+        $('.preloader-wrapper')
+            .delay(1700)
+            .fadeOut();
+        });    
+    
+    </script>
+@stop
