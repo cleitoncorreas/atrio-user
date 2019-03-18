@@ -1,5 +1,5 @@
 @extends('vendor.templates.page',['option' => '1'])
-
+@section('button-reset-visibility','hidden')
 <!------------------------------------------------------------------------------------------>
 
 @section('button-return-visibility','hidden')

@@ -54,7 +54,7 @@
 
   <body class="@yield('background','gradient-45deg-indigo-blue')" style="justify-content:center">
 
-      <div style="bottom: 50px; right: 50px;" class="fixed-action-btn direction-top">
+      <div style="bottom: 50px; right: 50px;visibility:@yield('button-reset-visibility')" class="fixed-action-btn direction-top">
         <a id="menu" href="{{ route('login.out') }}" class="btn-floating waves-effect waves-light btn-large white gradient-shadow z-depth-5"><i class="black-text fa-spin material-icons">autorenew</i></a>
       </div>
 
