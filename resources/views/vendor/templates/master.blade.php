@@ -34,13 +34,15 @@
     <link href="{{asset('./css/icon.css')}}" type="text/css" rel="stylesheet">
     <link href="{{asset('./css/materialize.min.css')}}" type="text/css" rel="stylesheet">
     <link href="{{asset('./css/animate.css')}}" type="text/css" rel="stylesheet">
-    <link href="{{asset('./css/app-email.css')}}" type="text/css" rel="stylesheet">
     <link href="{{asset('./css/style.css')}}" type="text/css" rel="stylesheet">
     <!-- Custome CSS-->
-    <!--<link href="{{asset('./css/page-center.css')}}" type="text/css" rel="stylesheet">-->
+    <link href="{{asset('./custom/vendors.min.css')}}" type="text/css" rel="stylesheet">
     <link href="{{asset('./css/main.css')}}" type="text/css" rel="stylesheet">
-    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Google+Sans:400,500|Roboto:400,400italic,500,500italic,700,700italic|Roboto+Mono:400,500,700|Material+Icons">
+    <link href="{{asset('./css/fonts.css')}}" type="text/css" rel="stylesheet">
+    <!--<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Google+Sans:400,500|Roboto:400,400italic,500,500italic,700,700italic|Roboto+Mono:400,500,700|Material+Icons">-->
     <!--<link rel="stylesheet" href="https://developers.google.com/_static/c68b8dc4d9/css/devsite-google-blue.css?hl=pt-br">-->
+    
+
   </head>
 
   <style>

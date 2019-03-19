@@ -16,7 +16,7 @@
                   <!--<p class="center login-form-text">@yield('title-grid')</p>-->
                 </div>
                 <div class="animated bounce input-field col s12 center">
-                    <h3 class="header center @yield('title-color','blue')-text text-darken-4 light" id="seletor">@yield('title-grid')</h3>
+                    <h3 class="header center @yield('title-color','blue')-text text-darken-4 light" id="seletor">@yield('title-grid')<span style="font-size:15px">@yield('title-subgrid')</span></h3>
                     <h5 class="font-weight-100 center black-text text-darken-4 light" id="seletor">@yield('subtitle-grid')</h5>
                 </div>
             </div>
@@ -296,17 +296,73 @@
                             {
                                 $('#div-print').printElement(/*{printMode:'popup'}*/);
                             }
-                            function print(){
+                            /*function print(){
                                 var conteudo = document.getElementById('div-print').innerHTML,
                                 tela_impressao = window.open('about:blank');
                                 tela_impressao.document.write(conteudo);
                                 tela_impressao.window.print();
                                 tela_impressao.window.close();
-                            }
+                            }*/
                         </script>
                     @stop
-
                     
+                @break
+
+                @case('8')
+
+                <div class="card card card-default scrollpy border-radius-10 fixed-width z-depth-2">
+                    <div class="card-content p-0 ">
+                        <div>
+                                <br>
+                        </div>
+                        <ul class="collection" style="max-height: 262px;overflow:auto;">
+                            <li class="collection-item animate fadeUp delay-2 avatar">
+                                <img src="images/yuna.jpg" alt="" class="circle z-depth-2 responsive-img avatar">
+                                <span class="title">Title</span>
+                                <p>First Line <br>
+                                    Second Line
+                                </p>
+                                <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+                            </li>
+                            <li class="collection-item animate fadeUp delay-2 avatar">
+                                <i class="z-depth-2 material-icons circle">folder</i>
+                                <span class="title">Title</span>
+                                <p>First Line <br>
+                                    Second Line
+                                </p>
+                                <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+                            </li>
+                            <li class="collection-item animate fadeUp delay-2 avatar">
+                                <i class="z-depth-2 material-icons circle green">insert_chart</i>
+                                <span class="title">Title</span>
+                                <p>First Line <br>
+                                    Second Line
+                                </p>
+                                <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+                            </li>
+                            <li class="collection-item animate fadeUp delay-2 avatar">
+                                <i class="z-depth-2  material-icons circle red">play_arrow</i>
+                                <span class="title">Title</span>
+                                <p>First Line <br>
+                                    Second Line
+                                </p>
+                                <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+                            </li>
+                        </ul>
+                        <br>
+
+                    </div>
+                </div>
+                
+                <div>
+                        <br>
+                </div>
+
+                <script>
+  
+
+                </script>
+
                 @break
 
                 @default

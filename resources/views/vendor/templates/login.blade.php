@@ -105,7 +105,7 @@
                 <i class="ion ion-ios-contact-outline prefix pt-5"></i>
                 <!--<i class="material-icons prefix pt-5">person_outline</i>-->
                 <input class="cpf" autocomplete="off" placeholder="Ex:. 11122233344" name="username" id="username" type="text" value="">
-                <label id="user" for="username"  style="font-size: 20px"><span style="color:red">*</span> Usuário (CPF)</label>
+                <label id="user" for="username"  style="font-size: 20px"><span style="color:red">*</span> CPF</label>
             </div>
         </div>
         <div class="row margin">
@@ -113,7 +113,7 @@
                 <i class="ion ion-android-lock prefix pt-5"></i>
                 <!--<i class="material-icons prefix pt-5">lock_outline</i>-->
                 <input class="date" placeholder="Ex:. 22122019" name="password" id="password" type="password" value="">
-                <label id="pass" for="password" style="font-size: 20px"><span style="color:red">*</span> Senha (Nascimento)</label>
+                <label id="pass" for="password" style="font-size: 20px"><span style="color:red">*</span> Ano de Nascimento</label>
             </div>
         </div>
         

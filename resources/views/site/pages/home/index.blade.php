@@ -8,8 +8,9 @@
 
 <!------------------------------------------------------------------------------------------>
 
-<!--@@section('logo-avatar', './img/logo-menu/logo.png')-->
+@section('logo-avatar', './img/logo-menu/logo.png')
 @section('title-grid', config('atrio.title'))
+@section('title-subgrid',config('atrio.title_postfix'))
 @section('subtitle-grid', 'Controle de Portaria')
 
 <!------------------------------------------------------------------------------------------>

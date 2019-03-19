@@ -13,10 +13,10 @@ return [
     |
     */
 
-    'title' => 'Átrio',
+    'title' => 'Atrio',
 
     'title_prefix' => '',
 
-    'title_postfix' => '| 2.0',
+    'title_postfix' => ' | beta',
 
 ];
