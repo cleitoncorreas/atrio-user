@@ -5,8 +5,8 @@
     <div id="login-pag" class="row">
         <div class="animated fadeInDown col s12 z-depth-5 card-panel border-round" id="seletor">
             <div class="row">
-                <div class="input-field col s12">
-                    <div class="animated zoomIn">
+                <div class="input-field col s12 mt-5">
+                    <div class="animated zoomIn ">
                         <a style="visibility:@yield('button-return-visibility')" href="@yield('button-return-href')" class="btn-floating @yield('button-return-color','gradient-45deg-indigo-light-blue') gradient-shadow btn-large waves-effect waves-light"><i class="material-icons">arrow_back</i></a>
                     </div>
                     
@@ -15,7 +15,7 @@
                     </div>
                   <!--<p class="center login-form-text">@yield('title-grid')</p>-->
                 </div>
-                <div class="animated bounce input-field col s12 center">
+                <div class="animated bounce input-field col s12 center mb-5">
                     <h3 class="header center @yield('title-color','blue')-text text-darken-4 light" id="seletor">@yield('title-grid')<span style="font-size:15px">@yield('title-subgrid')</span></h3>
                     <h5 class="font-weight-100 center black-text text-darken-4 light" id="seletor">@yield('subtitle-grid')</h5>
                 </div>
@@ -24,30 +24,30 @@
 
             @switch($option)
                 @case('1')
-                    <div class="animated zoomIn row center col s12">
+                    <div class="animated zoomIn row center col s12 mb-5">
                         <a href="@yield('button-option1-href')" class="@yield('button-option1-color','gradient-45deg-indigo-light-blue') gradient-shadow btn-large z-depth-5 waves-effect waves-light border-round col s12">@yield('button-option1-name')<!--<i class="material-icons ml-6 left">cloud_download</i>--></a>
                     </div>
                 @break
 
                 @case('2')
-                    <div class="animated zoomIn row center col s12">
+                    <div class="animated zoomIn row center col s12 mb-3">
                         <a href="@yield('button-option1-href')" class="@yield('button-option1-color','gradient-45deg-indigo-light-blue') gradient-shadow btn-large z-depth-5 waves-effect waves-light border-round col s12">@yield('button-option1-name')</a>
                     </div>
-                    <div class="animated zoomIn row center col s12">
+                    <div class="animated zoomIn row center col s12 mb-6">
                         <a href="@yield('button-option2-href')" class="@yield('button-option2-color','gradient-45deg-indigo-light-blue') gradient-shadow btn-large z-depth-5 waves-effect waves-light border-round col s12">@yield('button-option2-name')</a>
                     </div>
                 @break
 
                 @case('3')
-                    <div class="animated zoomIn row center col s12">
+                    <div class="animated zoomIn row center col s12 mb-3">
                         <i class="material-icons teal-text" style="position: absolute; top: -7px; right:2%; z-index:2">lens</i>
                         <a href="@yield('button-option1-href')" class="@yield('button-option1-color','gradient-45deg-indigo-light-blue') gradient-shadow btn-large z-depth-5 waves-effect waves-light border-round col s12">@yield('button-option1-name')<!--</span><span class="badge badge pill float-right mt-2 red">30</span>--></a>
                     </div>
-                    <div class="animated zoomIn row center col s12">
+                    <div class="animated zoomIn row center col s12 mb-3">
                         <i class="material-icons blue-text" style="position: absolute; top: -7px; right:2%; z-index:2">lens</i>
                         <a href="@yield('button-option2-href')" class="@yield('button-option2-color','gradient-45deg-indigo-light-blue') gradient-shadow btn-large z-depth-5 waves-effect waves-light border-round col s12">@yield('button-option2-name')</a>
                     </div>
-                    <div class="animated zoomIn row center col s12">
+                    <div class="animated zoomIn row center col s12 mb-5">
                         <i class="material-icons orange-text" style="position: absolute; top: -7px; right:2%; z-index:2">lens</i>
                         <a href="@yield('button-option3-href')" class="@yield('button-option3-color','gradient-45deg-indigo-light-blue') gradient-shadow btn-large z-depth-5 waves-effect waves-light border-round col s12">@yield('button-option3-name')</a>
                     </div>
@@ -120,7 +120,7 @@
                         
                         <form action="@yield('form-action')" method="post">
                         {{ csrf_field() }}
-                            <div>
+                            <div class="mt-5">
                                 <input type="hidden" name="@yield('form-input-name')" class="id">
                                 <button  type="submit" class="animated zoomIn @yield('button-select-color','gradient-45deg-indigo-light-blue') gradient-shadow waves-effect waves-light btn border-round">Selecionar</button>
                             </div>
@@ -163,32 +163,32 @@
 
                 @case('6')
                     <div class="row center col s12">
-                        <div class="row">
+                        <div class="row mb-3">
                             <a href="@yield('button-summary-login-href')" class="animated zoomInDown @yield('button-summary-login-color','gradient-45deg-indigo-light-blue') gradient-shadow btn-large z-depth-5 waves-effect waves-light border-round col s12">
                                 <img src="./../../../../img/logo-menu/shield.png" width="40" height="40" style="top:11%"  class="left">{{ Session::get('user') }}
                             </a>
                         </div>
-                        <div class="row">
+                        <div class="row mb-3">
                             <a href="@yield('button-summary-service-href')" class="animated zoomInDown @yield('button-summary-service-color','gradient-45deg-indigo-light-blue') gradient-shadow btn-large z-depth-5 waves-effect waves-light border-round col s12">
                                 <img src="./../../../../img/logo-menu/concierge.png" width="40" height="40" style="top:11%"  class="left">{{ Session::get('service') }}
                             </a>
                         </div>
-                        <div class="row">
+                        <div class="row mb-3">
                             <a href="@yield('button-summary-status-href')" class="animated zoomInDown @yield('button-summary-status-color','gradient-45deg-indigo-light-blue') gradient-shadow btn-large z-depth-5 waves-effect waves-light border-round col s12">
                                 <img src="./../../../../img/logo-menu/parking.png" width="40" height="40" style="top:11%"  class="left">{{ Session::get('status') }}
                             </a>
                         </div>
-                        <div class="row">
+                        <div class="row mb-3">
                             <a href="@yield('button-summary-driver-href')" class="animated zoomInDown @yield('button-summary-driver-color','gradient-45deg-indigo-light-blue') gradient-shadow btn-large z-depth-5 waves-effect waves-light border-round col s12">
                                 <img src="./../../../../img/logo-menu/driver.png" width="40" height="40" style="top:11%"  class="left">{{ Session::get('driver') }}
                             </a>
                         </div>
-                        <div class="row">
+                        <div class="row mb-3">
                             <a href="@yield('button-summary-car-href')" class="animated zoomInDown @yield('button-summary-car-color','gradient-45deg-indigo-light-blue') gradient-shadow btn-large z-depth-5 waves-effect waves-light border-round col s12">
                                 <img src="./../../../../img/logo-menu/cars.png" width="40" height="40" style="top:11%"  class="left">{{ Session::get('car') }}
                             </a>
                         </div>
-                        <div class="row">
+                        <div class="row mb-3">
                             <a href="@yield('button-summary-place-href')" class="animated zoomInDown @yield('button-summary-place-color','gradient-45deg-indigo-light-blue') gradient-shadow btn-large z-depth-5 waves-effect waves-light border-round col s12">
                                 <img src="./../../../../img/logo-menu/places.png" width="40" height="40" style="top:11%"  class="left">{{ Session::get('place') }}
                             </a>
@@ -197,7 +197,7 @@
                     </div>
                  
                 
-                    <div class="row center col s12">
+                    <div class="row center col s12 mb-5">
                         <form action="@yield('button-summary-confirm-action')" method="post">
                         {{ csrf_field() }}
                             <div>
@@ -208,8 +208,8 @@
                 @break
 
                 @case('7')
-                    <div class="row offset-s2" style="padding-left:30px; padding-right:30px">
-                        <div id="div-print" class="card-panel col s12 lime accent-1 z-depth-3">
+                    <div class="row offset-s2 mb-3" style="padding-left:30px; padding-right:30px">
+                        <div id="div-print" class="card-panel col s12 lime accent-1 z-depth-3 black-text">
                             <div class="center">
                                 <p style="text-align: center"><b><font size="4" face="Courier">LEGIÃO DA BOA VONTADE</font></b></p>
                             </div>
@@ -284,7 +284,7 @@
                         </div>
                     </div>
 
-                    <div class="row col s12 center" style="padding-left:30px; padding-right:30px">
+                    <div class="row col s12 center mb-5" style="padding-left:30px; padding-right:30px">
                             <button  onclick="PrintDiv()" class="animated zoomInDown gradient-45deg-purple-deep-orange gradient-shadow waves-effect waves-light btn border-round left">Imprimir</button>
                             <a href="{{ route('services.car.out.receipt.print') }}" class="animated zoomInDown gradient-45deg-purple-deep-orange gradient-shadow waves-effect waves-light btn border-round">Baixar</a>
                             <a href="{{ route('login.out') }}" class="animated zoomInDown gradient-45deg-purple-deep-orange gradient-shadow waves-effect waves-light btn border-round right">Encerrar</a>
@@ -310,58 +310,81 @@
 
                 @case('8')
 
-                <div class="card card card-default scrollpy border-radius-10 fixed-width z-depth-2">
-                    <div class="card-content p-0 ">
-                        <div>
-                                <br>
-                        </div>
-                        <ul class="collection" style="max-height: 262px;overflow:auto;">
-                            <li class="collection-item animate fadeUp delay-2 avatar">
-                                <img src="images/yuna.jpg" alt="" class="circle z-depth-2 responsive-img avatar">
-                                <span class="title">Title</span>
-                                <p>First Line <br>
-                                    Second Line
+                <style>
+                
+                .container {
+                /*position: relative;
+                width: 480px;
+                height: 320px;*/
+                overflow: auto;
+                }
+
+                .container .content {
+                /*background-image: url('https://i.imgur.com/nAUUNzH.jpg');
+                width: 1280px;
+                height: 720px;*/
+                }
+                
+                </style>
+
+                <div class="card scrollspy border-radius-10 fixed-width z-depth-3 mb-10">
+                    <div class="card-content p-0">
+                        <br>
+                        <br>
+                        <ul class="container collection" style="max-height: 262px">
+                            <li class="collection-item animate fadeUp delay-1 avatar">
+                                <img src="./../../../../img/cars/spacefox.png" alt="" class="circle z-depth-2 responsive-img avatar mt-3" style=" z-index: 0">
+                                <img src="./../../../../img/drivers/0437000698.jpg" alt="" class="circle z-depth-2 responsive-img avatar mt-3 ml-6" style=" z-index: 1">
+                                <span class="title ml-9">Emissor: Cleiton Corrêa da Silva</span>
+                                <p class="ml-9">Veiculo: Space <br>
+                                    Motorista: Milton Paulo
                                 </p>
-                                <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+                                <a href="#!" class="secondary-content mt-3"><i class="ion-flag red-text" style="font-size:30px"></i></a>
                             </li>
                             <li class="collection-item animate fadeUp delay-2 avatar">
-                                <i class="z-depth-2 material-icons circle">folder</i>
-                                <span class="title">Title</span>
-                                <p>First Line <br>
-                                    Second Line
+                                <img src="./../../../../img/cars/fiorino.gif" alt="" class="circle z-depth-2 responsive-img avatar mt-3">
+                                <img src="./../../../../img/drivers/0432800306.jpg" alt="" class="circle z-depth-2 responsive-img avatar mt-3 ml-6" style=" z-index: 1">
+                                <span class="title ml-9">Emissor: Cleiton Corrêa da Silva</span>
+                                <p class="ml-9">Veiculo: Fiorino <br>
+                                    Motorista: Gilmar Mendes
                                 </p>
-                                <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+                                <a href="#!" class="secondary-content mt-3"><i class="ion-flag red-text" style="font-size:30px"></i></a>
                             </li>
-                            <li class="collection-item animate fadeUp delay-2 avatar">
-                                <i class="z-depth-2 material-icons circle green">insert_chart</i>
-                                <span class="title">Title</span>
-                                <p>First Line <br>
-                                    Second Line
+                            <li class="collection-item animate fadeUp delay-3 avatar">
+                                <img src="./../../../../img/cars/doblo.jpg" alt="" class="circle z-depth-2 responsive-img avatar mt-3">
+                                <img src="./../../../../img/drivers/0437000804.jpg" alt="" class="circle z-depth-2 responsive-img avatar mt-3 ml-6" style=" z-index: 1">
+                                <span class="title ml-9">Emissor: Cleiton Corrêa da Silva</span>
+                                <p class="ml-9">Veiculo: Dòblo <br>
+                                    Motorista: João Paulo
                                 </p>
-                                <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+                                <a href="#!" class="secondary-content mt-3"><i class="ion-flag red-text" style="font-size:30px"></i></a>
                             </li>
-                            <li class="collection-item animate fadeUp delay-2 avatar">
-                                <i class="z-depth-2  material-icons circle red">play_arrow</i>
-                                <span class="title">Title</span>
-                                <p>First Line <br>
-                                    Second Line
+                            <li class="collection-item animate fadeUp delay-4 avatar">
+                                <img src="./../../../../img/cars/doblo.jpg" alt="" class="circle z-depth-2 responsive-img avatar mt-3">
+                                <img src="./../../../../img/drivers/0432800342.jpg" alt="" class="circle z-depth-2 responsive-img avatar mt-3 ml-6" style=" z-index: 1">
+                                <span class="title ml-9">Emissor: Cleiton Corrêa da Silva</span>
+                                <p class="ml-9">Veiculo: Dòblo  <br>
+                                    Motorista: Paulo Vitor
                                 </p>
-                                <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+                                <a href="#!" class="secondary-content mt-3"><i class="ion-flag red-text" style="font-size:30px"></i></a>
                             </li>
                         </ul>
                         <br>
-
+                        <br>
                     </div>
                 </div>
-                
-                <div>
-                        <br>
-                </div>
+  
+                @section('js')
+
+                <script src="./../../../../vendor/perfect-scrollbar/dist/perfect-scrollbar.js"></script>
 
                 <script>
-  
+                
+                var ps = new PerfectScrollbar('.container');
 
                 </script>
+                
+                @stop
 
                 @break
 

@@ -144,8 +144,6 @@ class CarController extends Controller
         $evento_veiculo->id_motorista      = session('id_driver');
         $evento_veiculo->id_veiculo        = session('id_car');
         $evento_veiculo->id_localidade     = session('id_place');
-        $evento_veiculo->id_status         = 'S';
-        $evento_veiculo->id_situacao       = 'A';
         $evento_veiculo->data_hora_saida   = now();
         $evento_veiculo->data_hora_entrada = null;
         $evento_veiculo->timestamps = false; 
