@@ -12,4 +12,4 @@
 @section('logo-avatar', './../../img/logo-menu/out.png')
 @section('title-grid', 'Devolução')
 @section('title-color','purple')
-@section('subtitle-grid', 'encerre as saídas em abertas')
+@section('subtitle-grid', 'encerre suas devoluções')
