@@ -1,28 +1,27 @@
-@extends('vendor.templates.page')
+@extends('vendor.templates.page',['option' => '2'])
+@section('background','gradient-45deg-green-teal')
 
-@section('title', 'PortControl | 1.0')
+<!------------------------------------------------------------------------------------------>
 
-@section('button-return')
+<!--@@section('button-visibility','hidden')-->
+@section('button-return-color','gradient-45deg-cyan-light-green')
+@section('button-return-href','/services')
 
-    <div>
-        <a href="{{ route('services') }}" class="btn-floating gradient-45deg-indigo-light-blue blue btn-large waves-effect waves-light pulse"><i class="material-icons">arrow_back</i></a>
-    </div>
-
-@stop
+<!------------------------------------------------------------------------------------------>
 
 @section('logo-avatar', './../img/logo-menu/key.png')
-
 @section('title-grid', 'Chaves')
+@section('title-color','teal')
+@section('subtitle-grid', 'selecione a opção desejada')
 
-@section('subtitle-grid', 'Selecione a opção desejada')
+<!------------------------------------------------------------------------------------------>
 
-@section('options')
+@section('button-option1-href','car/out')
+@section('button-option1-color','gradient-45deg-cyan-light-green')
+@section('button-option1-name','Retirar')
 
-    <div class="row center col s12">
-        <a href="" id="download-button" class="gradient-45deg-indigo-light-blue blue btn-large z-depth-5 waves-effect waves-light border-round pulse col s12">Retirar</a>
-    </div>
-    <div class="row center col s12">
-        <a href="" id="download-button" class="gradient-45deg-indigo-light-blue blue btn-large z-depth-5 waves-effect waves-light border-round pulse col s12">Entregar</a>
-    </div>
+<!------------------------------------------------------------------------------------------>
 
-@stop
+@section('button-option2-href','car/in')
+@section('button-option2-color','gradient-45deg-cyan-light-green')
+@section('button-option2-name','Devolver')

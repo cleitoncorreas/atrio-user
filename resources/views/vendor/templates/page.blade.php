@@ -44,11 +44,11 @@
                         <a href="@yield('button-option1-href')" class="@yield('button-option1-color','gradient-45deg-indigo-light-blue') gradient-shadow btn-large z-depth-5 waves-effect waves-light border-round col s12">@yield('button-option1-name')<!--</span><span class="badge badge pill float-right mt-2 red">30</span>--></a>
                     </div>
                     <div class="animated zoomIn row center col s12 mb-3">
-                        <i class="material-icons blue-text" style="position: absolute; top: -7px; right:2%; z-index:2">lens</i>
+                        <i class="material-icons orange-text" style="position: absolute; top: -7px; right:2%; z-index:2">lens</i>
                         <a href="@yield('button-option2-href')" class="@yield('button-option2-color','gradient-45deg-indigo-light-blue') gradient-shadow btn-large z-depth-5 waves-effect waves-light border-round col s12">@yield('button-option2-name')</a>
                     </div>
                     <div class="animated zoomIn row center col s12 mb-3">
-                        <i class="material-icons orange-text" style="position: absolute; top: -7px; right:2%; z-index:2">lens</i>
+                        <i class="material-icons red-text" style="position: absolute; top: -7px; right:2%; z-index:2">lens</i>
                         <a href="@yield('button-option3-href')" class="@yield('button-option3-color','gradient-45deg-indigo-light-blue') gradient-shadow btn-large z-depth-5 waves-effect waves-light border-round col s12">@yield('button-option3-name')</a>
                     </div>
                 @break

@@ -21,7 +21,7 @@
 <!------------------------------------------------------------------------------------------>
 
 @section('button-option2-href','services/correspondence')
-<!--@@section('button-option2-color','gradient-45deg-purple-deep-orange')-->
+@section('button-option2-color','gradient-45deg-amber-amber')
 @section('button-option2-name','Correspondência')
 
 <!------------------------------------------------------------------------------------------>
