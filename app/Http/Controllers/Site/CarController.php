@@ -11,6 +11,8 @@ use App\Models\Localidade;
 use App\Models\Eventos_Veiculo;
 use DateTime;
 use App\Models\eventosVeiculo;
+use App\Models\Quiz;
+use App\Models\Pergunta;
 
 class CarController extends Controller
 {
@@ -46,7 +48,14 @@ class CarController extends Controller
     public function in()
     {
         session(['status' => 'ENTRADA']);
-        return view('site.pages.services.car.in.index');
+        $lists = eventosVeiculo::where('id_emissor','=',session('id_user'))->where('data_hora_entrada','=',null)->get();
+        return view('site.pages.services.car.in.index',compact('lists'));
+    }
+
+    public function quiz($id)
+    {
+        $lists = Pergunta::where('situacao','=','A')->get();
+        return view('site.pages.services.car.in.quiz.index',compact('lists','id'));
     }
 
     /*

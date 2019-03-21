@@ -1,15 +1,15 @@
-@extends('vendor.templates.page',['option' => '8'])
+@extends('vendor.templates.page',['option' => '9'])
 @section('background','gradient-45deg-indigo-purple')
 
 <!------------------------------------------------------------------------------------------>
 
 <!--@@section('button-visibility','hidden')-->
 @section('button-return-color','gradient-45deg-purple-deep-orange')
-@section('button-return-href','/services/car')
+@section('button-return-href','/services/car/in')
 
 <!------------------------------------------------------------------------------------------>
 
-@section('logo-avatar', './../../img/logo-menu/out.png')
-@section('title-grid', 'Devolução')
+@section('logo-avatar', './../../../../img/logo-menu/question-login.png')
+@section('title-grid', 'Questionário')
 @section('title-color','purple')
-@section('subtitle-grid', 'encerre suas saídas de veiculos')
+@section('subtitle-grid', 'responda o questionário baixo')
