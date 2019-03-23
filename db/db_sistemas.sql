@@ -97,6 +97,21 @@ CREATE TABLE IF NOT EXISTS `usuario_sistema` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- Exportação de dados foi desmarcado.
+-- Copiando estrutura para view db_sistemas.view_autenticacao
+-- Criando tabela temporária para evitar erros de dependência de VIEW
+CREATE TABLE `view_autenticacao` (
+	`id` INT(11) NOT NULL,
+	`cpf` VARCHAR(6) NOT NULL COLLATE 'utf8_general_ci',
+	`data_nascimento` DATE NULL,
+	`remember_token` VARCHAR(100) NULL COLLATE 'utf8_general_ci'
+) ENGINE=MyISAM;
+
+-- Copiando estrutura para view db_sistemas.view_autenticacao
+-- Removendo tabela temporária e criando a estrutura VIEW final
+DROP TABLE IF EXISTS `view_autenticacao`;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`%` SQL SECURITY DEFINER VIEW `view_autenticacao` AS SELECT id,substr(cpf,1,6) as cpf,data_nascimento,remember_token
+from db_sistemas.funcionarios ;
+
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
 /*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

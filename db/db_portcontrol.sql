@@ -22,33 +22,9 @@ CREATE TABLE IF NOT EXISTS `chaves` (
 -- Exportação de dados foi desmarcado.
 -- Copiando estrutura para tabela db_portcontrol.eventos_chaves
 CREATE TABLE IF NOT EXISTS `eventos_chaves` (
-  `id` int(11) NOT NULL,
-  `id_eventos` int(11) NOT NULL,
-  `chave` int(11) NOT NULL,
-  `id_emissor` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- Exportação de dados foi desmarcado.
--- Copiando estrutura para tabela db_portcontrol.eventos_correspondecias
-CREATE TABLE IF NOT EXISTS `eventos_correspondecias` (
-  `id` int(11) NOT NULL,
-  `id_eventos` int(11) NOT NULL,
-  `código` int(11) NOT NULL,
-  `remetente` varchar(100) NOT NULL,
-  `destinatario` varchar(100) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- Exportação de dados foi desmarcado.
--- Copiando estrutura para tabela db_portcontrol.eventos_veiculos
-CREATE TABLE IF NOT EXISTS `eventos_veiculos` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `id_emissor` int(11) NOT NULL,
-  `id_servico` enum('0','1','2') NOT NULL,
-  `id_motorista` int(11) NOT NULL,
-  `id_veiculo` int(11) NOT NULL,
-  `id_localidade` int(11) NOT NULL,
+  `id_chave` int(11) NOT NULL,
   `id_status` enum('S','E') NOT NULL,
   `id_situacao` enum('A','F') NOT NULL,
   `data_hora_saida` datetime NOT NULL,
@@ -57,16 +33,54 @@ CREATE TABLE IF NOT EXISTS `eventos_veiculos` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- Exportação de dados foi desmarcado.
+-- Copiando estrutura para tabela db_portcontrol.eventos_correspondencias
+CREATE TABLE IF NOT EXISTS `eventos_correspondencias` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id_emissor` int(11) NOT NULL DEFAULT '0',
+  `id_codigo` int(11) NOT NULL DEFAULT '0',
+  `id_destinatario` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- Exportação de dados foi desmarcado.
+-- Copiando estrutura para tabela db_portcontrol.eventos_questionarios
+CREATE TABLE IF NOT EXISTS `eventos_questionarios` (
+  `id` int(11) DEFAULT NULL,
+  `id_evento` int(11) DEFAULT NULL,
+  `id_servico` int(11) DEFAULT NULL,
+  `id_perguntas` int(11) DEFAULT NULL,
+  `resposta` enum('Y','N') DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- Exportação de dados foi desmarcado.
+-- Copiando estrutura para tabela db_portcontrol.eventos_veiculos
+CREATE TABLE IF NOT EXISTS `eventos_veiculos` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id_emissor` int(11) NOT NULL,
+  `id_motorista` int(11) NOT NULL,
+  `id_veiculo` int(11) NOT NULL,
+  `id_localidade` int(11) NOT NULL,
+  `descricao` varchar(255) DEFAULT NULL,
+  `data_hora_saida` datetime NOT NULL,
+  `data_hora_entrada` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+
+-- Exportação de dados foi desmarcado.
 -- Copiando estrutura para tabela db_portcontrol.localidades
 CREATE TABLE IF NOT EXISTS `localidades` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `foto` varchar(50) NOT NULL DEFAULT '0',
+  `foto` varchar(50) NOT NULL,
+  `sigla` varchar(50) NOT NULL,
   `descricao` varchar(100) NOT NULL,
   `endereco` varchar(80) NOT NULL,
-  `cidades` varchar(70) NOT NULL,
+  `numero` varchar(80) NOT NULL,
+  `complemento` varchar(80) DEFAULT NULL,
+  `bairro` varchar(80) NOT NULL,
+  `cidade` varchar(70) NOT NULL,
   `telefone` varchar(25) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 -- Exportação de dados foi desmarcado.
 -- Copiando estrutura para tabela db_portcontrol.motoristas
@@ -77,20 +91,40 @@ CREATE TABLE IF NOT EXISTS `motoristas` (
   `foto` varchar(200) NOT NULL,
   `cnh` varchar(11) NOT NULL,
   `validade` date NOT NULL,
+  `id_situacao` enum('A','I') NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 -- Exportação de dados foi desmarcado.
--- Copiando estrutura para tabela db_portcontrol.teste
-CREATE TABLE IF NOT EXISTS `teste` (
-  `ID` int(11) NOT NULL AUTO_INCREMENT,
-  `Motorista` varchar(255) NOT NULL,
-  `Carro` varchar(255) NOT NULL,
-  `Local` varchar(255) NOT NULL,
-  `Data` date NOT NULL,
-  `Motivo` varchar(512) NOT NULL,
-  PRIMARY KEY (`ID`)
+-- Copiando estrutura para tabela db_portcontrol.questionarios_perguntas
+CREATE TABLE IF NOT EXISTS `questionarios_perguntas` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id_questionario` int(11) NOT NULL DEFAULT '0',
+  `pergunta` varchar(250) NOT NULL,
+  `padrao` enum('Y','N') NOT NULL,
+  `foto` varchar(50) NOT NULL,
+  `situacao` enum('A','I') NOT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+
+-- Exportação de dados foi desmarcado.
+-- Copiando estrutura para tabela db_portcontrol.servicos
+CREATE TABLE IF NOT EXISTS `servicos` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `descricao` varchar(50) NOT NULL,
+  `situacao` enum('A','I') NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+
+-- Exportação de dados foi desmarcado.
+-- Copiando estrutura para tabela db_portcontrol.servicos_questionarios
+CREATE TABLE IF NOT EXISTS `servicos_questionarios` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id_servico` int(11) NOT NULL,
+  `descricao` varchar(50) NOT NULL,
+  `situacao` enum('A','I') NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 -- Exportação de dados foi desmarcado.
 -- Copiando estrutura para tabela db_portcontrol.veiculos
