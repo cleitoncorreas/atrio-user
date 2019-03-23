@@ -13,6 +13,8 @@ use DateTime;
 use App\Models\eventosVeiculo;
 use App\Models\Quiz;
 use App\Models\Pergunta;
+use App\Models\gruposPergunta;
+use App\Models\questionariosPergunta;
 
 class CarController extends Controller
 {
@@ -54,7 +56,7 @@ class CarController extends Controller
 
     public function quiz($id)
     {
-        $lists = Pergunta::where('situacao','=','A')->get();
+        $lists = questionariosPergunta::where('situacao','=','A')->where('id_questionario','=','1')->get();
         return view('site.pages.services.car.in.quiz.index',compact('lists','id'));
     }
 

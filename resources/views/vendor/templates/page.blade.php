@@ -3,11 +3,11 @@
 @section('body')
 
     <div id="login-pag" class="row">
-        <div class="animated fadeInDown col s12 z-depth-5 card-panel border-round" id="seletor">
+        <div class="@yield('animated-page','animated fadeInDown') col s12 z-depth-5 card-panel border-round" id="seletor">
             <div class="row">
                 <div class="input-field col s12 mt-3">
-                    <div class="animated zoomIn ">
-                        <a style="visibility:@yield('button-return-visibility')" href="@yield('button-return-href')" class="btn-floating @yield('button-return-color','gradient-45deg-indigo-light-blue') gradient-shadow btn-large waves-effect waves-light"><i class="material-icons">arrow_back</i></a>
+                    <div class="@yield('animated-buttom-return','animated zoomIn')">
+                        <a style="visibility:@yield('button-return-visibility')" href="@yield('button-return-href')" class="btn-floating @yield('button-return-color','gradient-45deg-indigo-light-blue') gradient-shadow btn-large waves-effect waves-light"><i class="ion-android-arrow-back"></i></a>
                     </div>
                     
                     <div class="animated pulse infinite center">
@@ -39,6 +39,113 @@
                 @break
 
                 @case('3')
+
+
+                <style>
+        
+                        #toast {
+                        visibility: hidden;
+                        max-width: 50px;
+                        height: 50px;
+                        /*margin-left: -125px;*/
+                        margin: auto;
+                        background-color: #333;
+                        color: #fff;
+                        text-align: center;
+                        border-radius: 25px;
+                    
+                        position: fixed;
+                        z-index: 999;
+                        left: 0;right:0;
+                        bottom: -200px;
+                        font-size: 17px;
+                        white-space: nowrap;
+                        overflow: hidden;
+                    }
+                    #toast #img {
+                        width: 50px;
+                        height: 50px;
+                        
+                        float: left;
+                    
+                        padding-top: 11px;
+                        padding-bottom: 30px;
+                        
+                        box-sizing: border-box;
+                    
+                        background-color: #2196f3;
+                        color: #fff;
+                        border-radius: 25px;
+                    
+                    }
+                    #toast #desc{
+                        
+                        color: #fff;
+                        padding: 16px;
+                        padding-top: 11px;
+                        
+                        overflow: hidden;
+                        white-space: nowrap;
+                    
+                    }
+                    
+                    #toast.show {
+                        visibility: visible;
+                        -webkit-animation: fadein 0.5s, expand 0.5s 0.5s,stay 3s 1s, shrink 0.5s 2s, fadeout 0.5s 2.5s;
+                        animation: fadein 0.5s, expand 0.5s 0.5s,stay 3s 1s, shrink 0.5s 4s, fadeout 0.5s 4.5s;
+                    }
+                    
+                    @-webkit-keyframes fadein {
+                        from {bottom: 0; opacity: 0;} 
+                        to {bottom: -200px; opacity: 1;}
+                    }
+                    
+                    @keyframes fadein {
+                        from {bottom: 0; opacity: 0;}
+                        to {bottom: -200px; opacity: 1;}
+                    }
+                    
+                    @-webkit-keyframes expand {
+                        from {min-width: 50px} 
+                        to {min-width: 350px;}
+                    }
+                    
+                    @keyframes expand {
+                        from {min-width: 50px}
+                        to {min-width: 350px;}
+                    }
+                    @-webkit-keyframes stay {
+                        from {min-width: 350px} 
+                        to {min-width: 350px}
+                    }
+                    
+                    @keyframes stay {
+                        from {min-width: 350px}
+                        to {min-width: 350px}
+                    }
+                    @-webkit-keyframes shrink {
+                        from {min-width: 350px;} 
+                        to {min-width: 50px;}
+                    }
+                    
+                    @keyframes shrink {
+                        from {min-width: 350px;} 
+                        to {min-width: 50px;}
+                    }
+                    
+                    @-webkit-keyframes fadeout {
+                        from {bottom: -200px; opacity: 1;} 
+                        to {bottom: 60px; opacity: 0;}
+                    }
+                    
+                    @keyframes fadeout {
+                        from {bottom: -200px; opacity: 1;}
+                        to {bottom: 60px; opacity: 0;}
+                    }
+                            
+                    </style>
+                            
+                    
                     <div class="animated zoomIn row center col s12 mb-3">
                         <i class="material-icons teal-text" style="position: absolute; top: -7px; right:2%; z-index:2">lens</i>
                         <a href="@yield('button-option1-href')" class="@yield('button-option1-color','gradient-45deg-indigo-light-blue') gradient-shadow btn-large z-depth-5 waves-effect waves-light border-round col s12">@yield('button-option1-name')<!--</span><span class="badge badge pill float-right mt-2 red">30</span>--></a>
@@ -51,6 +158,29 @@
                         <i class="material-icons red-text" style="position: absolute; top: -7px; right:2%; z-index:2">lens</i>
                         <a href="@yield('button-option3-href')" class="@yield('button-option3-color','gradient-45deg-indigo-light-blue') gradient-shadow btn-large z-depth-5 waves-effect waves-light border-round col s12">@yield('button-option3-name')</a>
                     </div>
+
+                    @if (Session::has('alert-sucess'))
+                        <div id="toast">
+                            <div id="img" class="gradient-45deg-green-teal">
+                                <i class="fas fa-user-check style="font-size:30px"></i>
+                            </div>
+                            <div id="desc"><span>{{ session('alert-sucess') }}</span></div>
+                        </div>
+                    @endif
+
+                    @section('js')
+                    <script>
+                        $(document).ready(function(){
+                            launch_toast();
+                        });
+
+                        function launch_toast() {
+                            var x = document.getElementById("toast")
+                            x.className = "show";
+                            setTimeout(function(){ x.className = x.className.replace("show", ""); }, 5000);
+                        }
+                    </script>
+                    @stop
                 @break
 
                 @case('4')
@@ -331,20 +461,20 @@
                     <div class="card-content p-0">
                         <br>
                         <br>
-                        <ul class="container collection" style="max-height: 262px">
-                            @foreach ($lists as $key => $line)
-                                <li class="collection-item animate fadeUp delay-{{ $key }} avatar">
-                                    <img src="./../../../../img/cars/{{ $line->veiculo->foto }}" alt="" class="circle z-depth-0 responsive-img avatar mt-3" style=" z-index: 0">
-                                    <img src="./../../../../img/drivers/{{ $line->motorista->foto }}" alt="" class="circle z-depth-0 responsive-img avatar mt-2 ml-4" style=" z-index: 1;width: 50px;height:50px">
-                                    <img src="./../../../../img/places/{{ $line->localidade->foto }}" alt="" class="circle z-depth-0 responsive-img avatar mt-3 ml-9" style=" z-index: 0">
-                                    <span class="title ml-10 flow-text">Local: {{ $line->localidade->sigla }} | {{ ucwords(strtolower($line->localidade->bairro)) }}</span>
-                                    <p class="ml-10 ">Veiculo: {{ $line->veiculo->modelo }} | {{ $line->veiculo->placa }} <br>
-                                        Motorista: {{ ucwords(strtolower($line->motorista->funcionario->nome)) }}
-                                    </p>
-                                    <a href="{{ route('services.car.in.quiz',$line->id) }}" class="secondary-content mt-3"><i class="ion-paper-airplane red-text" style="font-size:30px"></i></a>
-                                </li>
-                            @endforeach
-                        </ul>
+                            <ul class="container collection" style="max-height: 262px">
+                                @foreach ($lists as $key => $line)
+                                    <li class="collection-item animate fadeUp delay-{{ $key }} avatar">
+                                        <img src="./../../../../img/cars/{{ $line->veiculo->foto }}" alt="" class="circle z-depth-0 responsive-img avatar mt-3" style=" z-index: 0; border-radius:50%;border:2px solid black;">
+                                        <img src="./../../../../img/drivers/{{ $line->motorista->foto }}" alt="" class="circle z-depth-0 responsive-img avatar mt-2 ml-4" style=" z-index: 1;width: 50px;height:50px; border-radius:50%;border:2px solid black;">
+                                        <img src="./../../../../img/places/{{ $line->localidade->foto }}" alt="" class="circle z-depth-0 responsive-img avatar mt-3 ml-9" style=" z-index: 0; border-radius:50%;border:2px solid black;">
+                                        <span class="title ml-10 flow-text">Local: {{ $line->localidade->sigla }} | {{ ucwords(strtolower($line->localidade->bairro)) }}</span>
+                                        <p class="ml-10 ">Veiculo: {{ $line->veiculo->modelo }} | {{ $line->veiculo->placa }} <br>
+                                            Motorista: {{ ucwords(strtolower($line->motorista->funcionario->nome)) }}
+                                        </p>
+                                        <a href="{{ route('services.car.in.quiz',$line->id) }}" class="secondary-content mt-3"><i class="fas fa-share-square purple-text" style="font-size:25px"></i></a>
+                                    </li>
+                                @endforeach
+                            </ul>
                         <br>
                         <br>
                     </div>
@@ -365,16 +495,26 @@
                 @break
 
                 @case('9')
-                    <div class="card scrollspy border-radius-10 fixed-width z-depth-3 mb-10" data-action="reload">
+
+                <style>
+                .switch label input[type=checkbox]:checked+.lever:after {
+                    background-color: purple !important;
+                }
+                .switch label input[type=checkbox]:checked+.lever {
+                    background-color: purple !important;
+                }
+                </style>
+                <form action=""></form>
+                    <div class="card scrollspy border-radius-10 fixed-width z-depth-3 mb-5" data-action="reload">
                         <div class="card-content p-0">
                             <br>
                             <br>
                             <ul class="container collection" style="max-height: 340px">
                                 @foreach ($lists as $key => $line)
                                     <li class="collection-item animate fadeUp delay-{{ $key }} avatar">
-                                        <img src="./../../../../img/logo-quiz/{{ $line->foto }}" alt="" class="circle z-depth-0 responsive-img avatar mt-2">
-                                        <div class="switch mt-5">{{ $line->pergunta }}
-                                            <label style="float: right">
+                                        <img src="./../../../../img/logo-quiz/{{ $line->foto }}" alt="" class="circle z-depth-0 responsive-img avatar mt-2" style="border-radius:50%;border:2px solid black;">
+                                        <div class="black-text switch mt-5">{{ $line->pergunta }}
+                                            <label style="float: right;color:black">
                                                 @if($line->padrao == 'Y')
                                                     <input type="checkbox" name="lists[]" value="{{ $line->id }}" checked="checked">
                                                 @else 
@@ -392,6 +532,10 @@
                             <br>
                         </div>
                     </div>
+                    <div class="col s12 center mb-5" >
+                            <button  onclick="" class="animated zoomInDown gradient-45deg-purple-deep-orange gradient-shadow waves-effect waves-light btn border-round center">Encerrar</button>
+                    </div>
+                </form>
                 @break
 
                 @default

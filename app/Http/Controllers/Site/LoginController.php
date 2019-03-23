@@ -10,6 +10,7 @@ use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Session;
 use App\Models\Funcionario;
 use App\Models\Motorista;
+use Illuminate\Support\Facades\DB;
 
 class LoginController extends Controller
 {
@@ -35,6 +36,7 @@ class LoginController extends Controller
 
     public function index()
     {
+        Auth::logout();
         return view('site.pages.login.login-cpf');
     }
 
@@ -46,13 +48,18 @@ class LoginController extends Controller
 
         if (Auth::attempt(['cpf' => $user, 'data_nascimento' => $password]))
         {
-            $funcionario = Funcionario::where('cpf','=',$user)->firstOrFail();
+            $funcionario = Funcionario::where(DB::raw('substr(cpf,1,6)'),'=',$user)->firstOrFail();
             session(['count_driver' => Motorista::where('id_funcionario','=',$funcionario->id)->count()]);
             session(['user' => $funcionario->nome]);
             session(['id_user' => $funcionario->id]);
-            return redirect()->intended('services');
+            $partes       = explode(' ', $funcionario->nome);
+            $primeiroNome = array_shift($partes);
+            $ultimoNome   = array_pop($partes);
+
+            $nome = $primeiroNome.' '.$ultimoNome;
+            return redirect()->intended('services')->with('alert-sucess','Bem vindo! '.ucwords(strtolower($nome)));;
         } else {
-            return redirect()->intended('login')->with('alert-danger','Usuário ou senha inválida!');
+            return redirect()->intended('login')->with('alert-danger','CPF ou ano de nascimento inválido!');
         }
     }
 

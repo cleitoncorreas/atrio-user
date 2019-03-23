@@ -36,6 +36,7 @@
     <link href="{{asset('./css/animate.css')}}" type="text/css" rel="stylesheet">
     <link href="{{asset('./css/style.css')}}" type="text/css" rel="stylesheet">
     <link href="{{asset('./css/style2.css')}}" type="text/css" rel="stylesheet">
+    <link href="{{asset('./vendor/fontawesome/css/all.css')}}" type="text/css" rel="stylesheet">
     <!-- Custome CSS-->
     <link href="{{asset('./vendor/perfect-scrollbar/css/perfect-scrollbar.css')}}" type="text/css" rel="stylesheet">
     <link href="{{asset('./css/main.css')}}" type="text/css" rel="stylesheet">
@@ -54,6 +55,8 @@
     }  
 
   </style>
+
+  @yield('css')
 
   <body class="@yield('background','gradient-45deg-indigo-blue')" style="justify-content:center">
 

@@ -11,7 +11,7 @@
 
 @section('logo-avatar', './../img/logo-menu/mailbox.png')
 @section('title-grid', 'Correspondência')
-@section('title-color','grey')
+@section('title-color','amber')
 @section('subtitle-grid', 'selecione a opção desejada')
 
 <!------------------------------------------------------------------------------------------>
