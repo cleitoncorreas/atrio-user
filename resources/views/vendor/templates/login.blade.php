@@ -1,7 +1,9 @@
 @extends('vendor.templates.page',['option' => '4'])
 
+@if(Session::has('alert-danger'))
 @section('animated-page','')
 @section('animated-buttom-return','')
+@endif
 <!------------------------------------------------------------------------------------------>
 
 <!--@@section('button-visibility','hidden')-->
@@ -172,7 +174,7 @@
             <div class="input-field col s8 offset-s2"> 
                 <div id="user"></div>
                 <!--<i class="material-icons prefix pt-5">person_outline</i>-->
-                <input id="input" placeholder="&#xf2c2;    CPF (Ex: 000.000)" class="black-text fas pure-input-rounded cpf" autocomplete="off" placeholder="Ex:. 11122233344" name="username" type="text" value="" style="font-family:Arial, FontAwesome;" maxlength="6">
+                <input id="input" placeholder="&#xf2c2;    CPF | 6 Primeiros Dig*" class="black-text fas pure-input-rounded cpf center" autocomplete="off" placeholder="Ex:. 11122233344" name="username" type="text" value="" style="font-family:Arial, FontAwesome;" maxlength="6">
                 <!--<label id="user" for="username"  style="font-size: 20px"><span style="color:red">*</span> CPF</label>-->
             </div>
         </div>
@@ -183,7 +185,7 @@
             <div class="input-field col s8 offset-s2">
                 <div id="password"></div>
                 <!--<i class="material-icons prefix pt-5">lock_outline</i>-->
-                <input id="input" class="fas pure-input-rounded date" placeholder="&#xf073;    Ano de Nascimento" name="password" id="password" type="password" value="" style="font-family:Arial, FontAwesome;" maxlength="4">
+                <input id="input" class="fas pure-input-rounded date center" placeholder="&#xf073;    Ano | Nascimento" name="password" id="password" type="password" value="" style="font-family:Arial, FontAwesome;" maxlength="4">
                 <!--<label id="pass" for="password" style="font-size: 20px"><span style="color:red">*</span> Ano de Nascimento</label>-->
             </div>
         </div>
