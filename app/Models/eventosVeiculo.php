@@ -8,6 +8,8 @@ class eventosVeiculo extends Model
 {
     protected $connection = 'another';
 
+    public $timestamps = false;
+
     protected $fillable = [
         'id_emissor',
         'id_motorista',

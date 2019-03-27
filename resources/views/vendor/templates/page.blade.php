@@ -539,58 +539,7 @@
                     </div>
                 </form>
 
-                @section('js')
-                    <script>
-
-                        $.ajaxSetup({
-                            headers: {
-                                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                            }
-                        });
-
-                        $(".btn-submit").click(function(e){
-                       
-                            e.preventDefault();
-
-                            var object = document.getElementsByClassName("objeto");
-
-                            var question = [];
-
-                            for (let index = 0; index < object.length; index++) {
-
-                                var obj = object[index];
-
-                                questionario = {
-                                    'id_evento'   : '{{ $id_evento }}',
-                                    'id_servico'  : '2',
-                                    'id_pergunta' : obj["value"],
-                                    'resposta'    : obj["checked"]
-                                };
-
-                                question.push(questionario);
-
-                            }
-
-
-                            $.ajax({
-
-                                type:'post',
-                                url:'/quizPost',
-                                data:{question:question},
-
-                                success:function(data){
-
-                                    alert(data.success);
-                                    console.log(data.success);
-
-                                }
-
-                            });
-
-                        });
-
-                    </script>
-                @stop
+ 
                 @break
 
                 @default

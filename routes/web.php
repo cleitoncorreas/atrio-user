@@ -59,7 +59,7 @@ Route::group(['middleware'=>'auth'],function(){
     Route::get ('/services/car/in',                    ['as'=>'services.car.in','uses'                    =>'Site\CarController@in']);
     Route::get ('/services/car/in/quiz/{id}',          ['as'=>'services.car.in.quiz','uses'               =>'Site\CarController@quiz']);
     Route::post('/services/car/in/quiz/post',          ['as'=>'services.car.in.quiz.post','uses'          =>'Site\CarController@quizPost']);
-    Route::get ('/services/car/in/quiz/finish',        ['as'=>'services.car.in.quiz.finish','uses'        =>'Site\CarController@quizFinish']);
+    Route::get ('/services/car/in/finish',             ['as'=>'services.car.in.finish','uses'             =>'Site\CarController@inFinish']);
     # CARS OUT => DRIVER
     Route::get ('/services/car/out',                   ['as'=>'services.car.out','uses'                   =>'Site\CarController@out']);
     # DRIVER YES
@@ -76,8 +76,8 @@ Route::group(['middleware'=>'auth'],function(){
     Route::get('/services/car/out/summary',            ['as'=>'services.car.out.summary','uses'           =>'Site\CarController@summary']);
     Route::post('/services/car/out/summary/confirm',   ['as'=>'services.car.out.summary.confirm','uses'   =>'Site\CarController@confirm']);
     Route::get ('/services/car/out/receipt',           ['as'=>'services.car.out.receipt','uses'           =>'Site\CarController@receipt']);
-    Route::get('/services/car/out/receipt/print',      ['as'=>'services.car.out.receipt.print','uses'     =>'Site\CarController@print']);
-    Route::get ('/services/finish',                    ['as'=>'services.finish','uses'                    =>'Site\CarController@finish']);
+    Route::get ('/services/car/out/receipt/print',     ['as'=>'services.car.out.receipt.print','uses'     =>'Site\CarController@print']);
+    Route::get ('/services/car/out/finish',            ['as'=>'services.car.out.finish','uses'            =>'Site\CarController@outFinish']);
 });
 
 //Auth::routes();

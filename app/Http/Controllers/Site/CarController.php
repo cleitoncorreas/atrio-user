@@ -67,26 +67,30 @@ class CarController extends Controller
     {
         $questions = [];
 
-        foreach ($request->lists as $key => $line) {
-            $question = [
-                'id_evento' => $request->id_evento,
-                'id_perguntas' => $request->lists[$key]
-            ];
-
-            array_push($questions,$question);
-            
+        if(isset($request->lists)){
+            foreach ($request->lists as $key => $line) {
+                $question = [
+                    'id_evento' => $request->id_evento,
+                    'id_perguntas' => $request->lists[$key]
+                ];
+    
+                array_push($questions,$question);
+                
+            }
+    
+            $eventos_questionarios->timestamps = false;
+            $eventos_questionarios->insert($questions);
         }
 
-        $eventos_questionarios->timestamps = false;
-        $eventos_questionarios->insert($questions);
+        eventosVeiculo::find($request->id_evento)->update(['data_hora_entrada' => now()]);
 
-        return redirect('services/car/in/quiz/finish');
+        return redirect()->route('services.car.in.finish');
 
     }
 
-    public function quizFinish()
+    public function inFinish()
     {
-        return view('site.pages.services.car.in.quiz.finish.index');
+        return view('site.pages.services.car.in.finish.index');
     }
 
     /*
@@ -205,7 +209,7 @@ class CarController extends Controller
         ->download('comprovante.pdf');
     }
 
-    public function finish()
+    public function outFinish()
     {
         return  redirect()->route('login.out');
     }
