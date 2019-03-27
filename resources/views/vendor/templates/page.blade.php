@@ -501,14 +501,16 @@
                     background-color: purple !important;
                 }
                 .switch label input[type=checkbox]:checked+.lever {
-                    background-color: purple !important;
+                    background-color: orchid !important;
                 }
                 </style>
-                <form action=""></form>
+                <form action="{{ route('services.car.in.quiz.post') }}" method="post">
+                    {{ csrf_field() }}
                     <div class="card scrollspy border-radius-10 fixed-width z-depth-3 mb-5" data-action="reload">
                         <div class="card-content p-0">
                             <br>
                             <br>
+                            <input type="hidden" name="id_evento" value="{{ $id_evento }}">
                             <ul class="container collection" style="max-height: 340px">
                                 @foreach ($lists as $key => $line)
                                     <li class="collection-item animate fadeUp delay-{{ $key }} avatar">
@@ -516,9 +518,9 @@
                                         <div class="black-text switch mt-5">{{ $line->pergunta }}
                                             <label style="float: right;color:black">
                                                 @if($line->padrao == 'Y')
-                                                    <input type="checkbox" name="lists[]" value="{{ $line->id }}" checked="checked">
+                                                    <input type="checkbox" name="lists[]" class="objeto" value="{{ $line->id }}" checked="true">
                                                 @else 
-                                                    <input type="checkbox" name="lists[]" value="{{ $line->id }}">
+                                                    <input type="checkbox" name="lists[]" class="objeto" value="{{ $line->id }}" checked="false">
                                                 @endif
                                                     Não
                                                 <span class="lever"></span>
@@ -533,9 +535,62 @@
                         </div>
                     </div>
                     <div class="col s12 center mb-5" >
-                            <button  onclick="" class="animated zoomInDown gradient-45deg-purple-deep-orange gradient-shadow waves-effect waves-light btn border-round center">Encerrar</button>
+                            <button type="submit" class="animated zoomInDown gradient-45deg-purple-deep-orange gradient-shadow waves-effect waves-light btn border-round center">Encerrar</button>
                     </div>
                 </form>
+
+                @section('js')
+                    <script>
+
+                        $.ajaxSetup({
+                            headers: {
+                                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                            }
+                        });
+
+                        $(".btn-submit").click(function(e){
+                       
+                            e.preventDefault();
+
+                            var object = document.getElementsByClassName("objeto");
+
+                            var question = [];
+
+                            for (let index = 0; index < object.length; index++) {
+
+                                var obj = object[index];
+
+                                questionario = {
+                                    'id_evento'   : '{{ $id_evento }}',
+                                    'id_servico'  : '2',
+                                    'id_pergunta' : obj["value"],
+                                    'resposta'    : obj["checked"]
+                                };
+
+                                question.push(questionario);
+
+                            }
+
+
+                            $.ajax({
+
+                                type:'post',
+                                url:'/quizPost',
+                                data:{question:question},
+
+                                success:function(data){
+
+                                    alert(data.success);
+                                    console.log(data.success);
+
+                                }
+
+                            });
+
+                        });
+
+                    </script>
+                @stop
                 @break
 
                 @default

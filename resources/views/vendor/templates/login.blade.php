@@ -83,10 +83,16 @@
         color: red;  
     }
 
-    #input {
+    #user{
         border:1px solid red;
         color: red;
     }
+
+    #password{
+        border:1px solid red;
+        color: red;
+    }
+
 </style>
 
 @else
@@ -148,7 +154,11 @@
         color: #2196f3;  
     }
 
-    #input{
+    #user{
+        border:1px solid #2196f3;
+    }
+
+    #password{
         border:1px solid #2196f3;
     }
 
@@ -163,7 +173,7 @@
 
 <meta name="csrf-token" content="{{ csrf_token() }}">
 
-<form class="pure-form" name="form" action="{{ route('login.in')}}" method="post">
+<form id="form-login" class="pure-form" name="form" action="{{ route('login.in')}}" method="post">
 @csrf
       
         <link href="{{asset('./vendor/pure/pure-min.css')}}" type="text/css" rel="stylesheet">
@@ -172,9 +182,9 @@
 
         <div class="row center">
             <div class="input-field col s8 offset-s2"> 
-                <div id="user"></div>
+                <div id="div-user"></div>
                 <!--<i class="material-icons prefix pt-5">person_outline</i>-->
-                <input id="input" placeholder="&#xf2c2;    CPF | 6 Primeiros Dig*" class="black-text fas pure-input-rounded cpf center" autocomplete="off" placeholder="Ex:. 11122233344" name="username" type="text" value="" style="font-family:Arial, FontAwesome;" maxlength="6">
+                <input id="user" placeholder="&#xf2c2;    CPF | 6 Primeiros Dig*" class="black-text fas pure-input-rounded cpf center" autocomplete="off" placeholder="Ex:. 11122233344" name="username" type="text" value="" style="font-family:Arial, FontAwesome;" maxlength="6">
                 <!--<label id="user" for="username"  style="font-size: 20px"><span style="color:red">*</span> CPF</label>-->
             </div>
         </div>
@@ -183,9 +193,9 @@
 
         <div class="row center">
             <div class="input-field col s8 offset-s2">
-                <div id="password"></div>
+                <div id="div-password"></div>
                 <!--<i class="material-icons prefix pt-5">lock_outline</i>-->
-                <input id="input" class="fas pure-input-rounded date center" placeholder="&#xf073;    Ano | Nascimento" name="password" id="password" type="password" value="" style="font-family:Arial, FontAwesome;" maxlength="4">
+                <input id="password" class="fas pure-input-rounded date center" placeholder="&#xf073;    Ano | Nascimento" name="password" id="password" type="password" value="" style="font-family:Arial, FontAwesome;" maxlength="4">
                 <!--<label id="pass" for="password" style="font-size: 20px"><span style="color:red">*</span> Ano de Nascimento</label>-->
             </div>
         </div>
@@ -323,7 +333,7 @@
                         <td><button type="button" name="num9" class="mb-10 btn-floating gradient-45deg-indigo-light-blue blue gradient-shadow btn-large waves-effect waves-light flow-text num" value="9" onclick="calcNum(9)"/>9</button></td>
                     </tr>  
                     <tr>
-                        <td><button type="button" name="limpar" class="mb-10 btn-floating gradient-45deg-red-pink  gradient-shadow btn-large waves-effect waves-light flow-text" onclick="calcLimpar()"/><i class="ion-backspace-outline"></i></button></td>
+                        <td><button id="backspace" type="button" name="limpar" class="mb-10 btn-floating gradient-45deg-red-pink  gradient-shadow btn-large waves-effect waves-light flow-text" onclick="backSpace()"/><i class="ion-backspace-outline"></i></button></td>
                         <td><button type="button" name="num0"   class="mb-10 btn-floating gradient-45deg-indigo-light-blue blue gradient-shadow btn-large waves-effect waves-light flow-text num" value="0" onclick="calcNum(0)"/>0</button></td>
                         <td><button type="submit" class="mb-10 btn-floating gradient-45deg-green-teal gradient-shadow btn-large waves-effect waves-light flow-text"><i class="ion-checkmark"></i></button></td>
                     </tr>        
@@ -365,17 +375,36 @@
         }
     
     }
-    
-    
-    function mascaraCpf(valor) {
-        return valor.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/g,"\$1.\$2.\$3\-\$4");
+
+    //apanhar todos os inputs
+    let inputs = document.querySelectorAll(".pure-form input");
+
+    for (let i = 0; i < inputs.length; ++i){
+    inputs[i].onkeyup=function(evento){ //construir o onkey para cada um
+
+            if (evento.key == "Backspace"){ //se for backspace estamos a apagar
+                if (i > 0 && this.value.length == 0){ //se não for o 1º e se tiver vazio
+                    inputs[i-1].focus();
+                }
+            }
+                else if ((i+1) < inputs.length && this.value.length >= 6){ //se não for o ultimo e tiver 1 caracter
+                inputs[i+1].focus();
+            }
+        }
     }
      
-    // Função que limpa a calculadora e todas as variáveis existentes.
-    function calcLimpar() {
-        document.form.username.value  = '';
-        document.form.password.value = '';
-    }
+
+    $("#backspace").click(function() {
+        if ($('#password').val() == "") {
+            var el = $('#user');
+        } else {
+            var el = $('#password');
+        }
+        var the_value = el.val();
+        the_value = the_value.substring(0, the_value.length - 1);
+        el.val(the_value);
+    });
+
     
 </script>
 

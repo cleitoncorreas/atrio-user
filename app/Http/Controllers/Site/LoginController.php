@@ -55,11 +55,12 @@ class LoginController extends Controller
             $partes       = explode(' ', $funcionario->nome);
             $primeiroNome = array_shift($partes);
             $ultimoNome   = array_pop($partes);
+            
 
             $nome = $primeiroNome.' '.$ultimoNome;
-            return redirect()->intended('services')->with('alert-sucess','Bem vindo! '.ucwords(strtolower($nome)));;
+            return redirect()->intended('services')->with('alert-sucess','Bem vind'.(($funcionario->sexo == "M") ? "o" : "a").'! '.ucwords(strtolower($nome)));;
         } else {
-            return redirect()->intended('login')->with('alert-danger','CPF ou ano de nascimento inválido!');
+            return redirect()->intended('login')->with('alert-danger','CPF ou Ano de nascimento inválido!');
         }
     }
 

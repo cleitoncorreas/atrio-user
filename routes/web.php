@@ -58,6 +58,8 @@ Route::group(['middleware'=>'auth'],function(){
     Route::get ('/services/car',                       ['as'=>'services.car','uses'                       =>'Site\CarController@index']);
     Route::get ('/services/car/in',                    ['as'=>'services.car.in','uses'                    =>'Site\CarController@in']);
     Route::get ('/services/car/in/quiz/{id}',          ['as'=>'services.car.in.quiz','uses'               =>'Site\CarController@quiz']);
+    Route::post('/services/car/in/quiz/post',          ['as'=>'services.car.in.quiz.post','uses'          =>'Site\CarController@quizPost']);
+    Route::get ('/services/car/in/quiz/finish',        ['as'=>'services.car.in.quiz.finish','uses'        =>'Site\CarController@quizFinish']);
     # CARS OUT => DRIVER
     Route::get ('/services/car/out',                   ['as'=>'services.car.out','uses'                   =>'Site\CarController@out']);
     # DRIVER YES

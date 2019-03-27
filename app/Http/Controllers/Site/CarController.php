@@ -15,6 +15,8 @@ use App\Models\Quiz;
 use App\Models\Pergunta;
 use App\Models\gruposPergunta;
 use App\Models\questionariosPergunta;
+use Symfony\Component\Console\Input\Input;
+use App\Models\eventosQuestionario;
 
 class CarController extends Controller
 {
@@ -57,7 +59,34 @@ class CarController extends Controller
     public function quiz($id)
     {
         $lists = questionariosPergunta::where('situacao','=','A')->where('id_questionario','=','1')->get();
-        return view('site.pages.services.car.in.quiz.index',compact('lists','id'));
+        $id_evento   = $id;
+        return view('site.pages.services.car.in.quiz.index',compact('lists','id_evento'));
+    }
+
+    public function quizPost(Request $request, eventosQuestionario $eventos_questionarios)
+    {
+        $questions = [];
+
+        foreach ($request->lists as $key => $line) {
+            $question = [
+                'id_evento' => $request->id_evento,
+                'id_perguntas' => $request->lists[$key]
+            ];
+
+            array_push($questions,$question);
+            
+        }
+
+        $eventos_questionarios->timestamps = false;
+        $eventos_questionarios->insert($questions);
+
+        return redirect('services/car/in/quiz/finish');
+
+    }
+
+    public function quizFinish()
+    {
+        return view('site.pages.services.car.in.quiz.finish.index');
     }
 
     /*
