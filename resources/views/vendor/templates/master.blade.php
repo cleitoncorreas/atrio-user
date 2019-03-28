@@ -32,7 +32,7 @@
     <link href="{{asset('./vendor/font-awesome/css/font-awesome.min.css')}}" type="text/css" rel="stylesheet">
     <!--Import Google Icon Font-->
     <link href="{{asset('./css/icon.css')}}" type="text/css" rel="stylesheet">
-    <link href="{{asset('./css/materialize.min.css')}}" type="text/css" rel="stylesheet">
+    <link href="{{asset('./css/materialize.css')}}" type="text/css" rel="stylesheet">
     <link href="{{asset('./css/animate.css')}}" type="text/css" rel="stylesheet">
     <link href="{{asset('./css/style.css')}}" type="text/css" rel="stylesheet">
     <link href="{{asset('./css/style2.css')}}" type="text/css" rel="stylesheet">

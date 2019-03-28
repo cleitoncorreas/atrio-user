@@ -19,186 +19,37 @@
 <!------------------------------------------------------------------------------------------>
 @section('login')
 
-@if ($alert = Session::get('alert-danger'))
-
-<style>
-    /* label color */
-    .input-field label {
-        color: red;
-    }
-    /* label focus color */
-    .input-field input[type=text]:focus + label {
-        color: red !important;
-    }
-    /* label underline focus color */
-    .input-field input[type=text]:focus {
-        border-bottom: 1px solid red !important;
-        box-shadow: 0 1px 0 0 red !important;
-    }
-
-    /* label focus color */
-    .input-field input[type=password]:focus + label {
-        color: red !important;
-    }
-    /* label underline focus color */
-    .input-field input[type=password]:focus {
-        border-bottom: 1px solid red !important;
-        box-shadow: 0 1px 0 0 red !important;
-    }
-
-    /* valid color */
-    .input-field input[type=text].valid {
-        border-bottom: 1px solid red;
-        box-shadow: 0 1px 0 0 red;
-    }
-    /* invalid color */
-    .input-field input[type=text].invalid {
-        border-bottom: 1px solid red;
-        box-shadow: 0 1px 0 0 red;
-    }
-
-    /* icon prefix focus color */
-    .input-field .prefix {
-        color: red;
-    }
-
-    /* icon prefix focus color */
-    .input-field .prefix.active {
-        color: red;
-    }
-
-    ::-webkit-input-placeholder {
-        color: red;
-    }
-
-    :-moz-placeholder { /* Firefox 18- */
-        color: red;  
-    }
-
-    ::-moz-placeholder {  /* Firefox 19+ */
-        color: red;  
-    }
-
-    :-ms-input-placeholder {  
-        color: red;  
-    }
-
-    #user{
-        border:1px solid red;
-        color: red;
-    }
-
-    #password{
-        border:1px solid red;
-        color: red;
-    }
-
-</style>
-
-@else
-
-<style>
-
-    /* label color */
-    .input-field label {
-        color: #000;
-    }
-    /* label focus color */
-    .input-field input[type=text]:focus + label {
-        color: #2196f3 !important;
-    }
-    /* label underline focus color */
-    .input-field input[type=text]:focus {
-        border-bottom: 1px solid #2196f3 !important;
-        box-shadow: 0 1px 0 0 #2196f3 !important;
-    }
-
-    /* label focus color */
-    .input-field input[type=password]:focus + label {
-        color: #2196f3 !important;
-    }
-    /* label underline focus color */
-    .input-field input[type=password]:focus {
-        border-bottom: 1px solid #2196f3 !important;
-        box-shadow: 0 1px 0 0 #2196f3 !important;
-    }
-
-    /* valid color */
-    .input-field input[type=text].valid {
-        border-bottom: 1px solid #2196f3;
-        box-shadow: 0 1px 0 0 #2196f3;
-    }
-    /* invalid color */
-    .input-field input[type=text].invalid {
-        border-bottom: 1px solid #2196f3;
-        box-shadow: 0 1px 0 0 #2196f3;
-    }
-    /* icon prefix focus color */
-        .fas {
-        color: #2196f3 !important;
-    }
-
-    ::-webkit-input-placeholder {
-        color: #2196f3;
-    }
-
-    :-moz-placeholder { /* Firefox 18- */
-        color: #2196f3;  
-    }
-
-    ::-moz-placeholder {  /* Firefox 19+ */
-        color: #2196f3;  
-    }
-
-    :-ms-input-placeholder {  
-        color: #2196f3;  
-    }
-
-    #user{
-        border:1px solid #2196f3;
-    }
-
-    #password{
-        border:1px solid #2196f3;
-    }
-
-
-</style>
-
-@endif
-
 <style>
 
 </style>
 
 <meta name="csrf-token" content="{{ csrf_token() }}">
 
-<form id="form-login" class="pure-form" name="form" action="{{ route('login.in')}}" method="post">
+<form  class="browser-default pure-form" action="{{ route('login.in')}}" method="post">
 @csrf
       
-        <link href="{{asset('./vendor/pure/pure-min.css')}}" type="text/css" rel="stylesheet">
+    <link href="{{asset('./css/google-input.css')}}" type="text/css" rel="stylesheet">
     <!--<div class="col s9 offset-s2 card-panel">-->
 
 
-        <div class="row center">
-            <div class="input-field col s8 offset-s2"> 
-                <div id="div-user"></div>
-                <!--<i class="material-icons prefix pt-5">person_outline</i>-->
-                <input id="user" placeholder="&#xf2c2;    CPF | 6 Primeiros Dig*" class="black-text fas pure-input-rounded cpf center" autocomplete="off" placeholder="Ex:. 11122233344" name="username" type="text" value="" style="font-family:Arial, FontAwesome;" maxlength="6">
+        <div class="browser-default row center">
+            <div class="browser-default label-float"> 
+                <input  placeholder="  " id="user" class="browser-default" autocomplete="off" name="username" type="text" value="" maxlength="6">
                 <!--<label id="user" for="username"  style="font-size: 20px"><span style="color:red">*</span> CPF</label>-->
+                <label class="browser-default">CPF</label>
             </div>
         </div>
 
+        <br>
 
-
-        <div class="row center">
-            <div class="input-field col s8 offset-s2">
-                <div id="div-password"></div>
-                <!--<i class="material-icons prefix pt-5">lock_outline</i>-->
-                <input id="password" class="fas pure-input-rounded date center" placeholder="&#xf073;    Ano | Nascimento" name="password" id="password" type="password" value="" style="font-family:Arial, FontAwesome;" maxlength="4">
+        <div class=" browser-default row center">
+            <div class="browser-default label-float">
+                <input placeholder="  " id="password" class="browser-default" autocomplete="off" name="password" type="password" value="" maxlength="4">
                 <!--<label id="pass" for="password" style="font-size: 20px"><span style="color:red">*</span> Ano de Nascimento</label>-->
+                <label class="browser-default">Ano de Nascimento</label>
             </div>
         </div>
+        
 
         <style>
         
