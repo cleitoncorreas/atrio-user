@@ -20,12 +20,42 @@
 @section('login')
 
 <style>
+/* formatação do elemento */
+#lupa{
+   float:right;
 
+   cursor:pointer
+}
+
+/* formatação do conteúdo  */
+#lupa:after{
+   font-family:FontAwesome;
+   font-size:14px;
+   content:"\f002"
+}
 </style>
+
+<style>
+/*
+* utilizando class + position
+*/
+#box_icone_busca{
+  width: 30px;
+  height: 30px;
+  padding: 10px;
+  position: relative;
+  left: -30px;
+  top: 1px;
+}
+#icone_busca {
+  color: rgba(0, 0, 0, 0.65);;
+}
+</style>
+
 
 <meta name="csrf-token" content="{{ csrf_token() }}">
 
-<form  class="browser-default pure-form" action="{{ route('login.in')}}" method="post">
+<form  name="form" class="browser-default pure-form" action="{{ route('login.in')}}" method="post">
 @csrf
       
     <link href="{{asset('./css/google-input.css')}}" type="text/css" rel="stylesheet">
@@ -34,9 +64,12 @@
 
         <div class="browser-default row center">
             <div class="browser-default label-float"> 
-                <input  placeholder="  " id="user" class="browser-default" autocomplete="off" name="username" type="text" value="" maxlength="6">
+                <input  placeholder=" " id="user" class="browser-default teste" autocomplete="off" name="username" type="text" value="" maxlength="6">
                 <!--<label id="user" for="username"  style="font-size: 20px"><span style="color:red">*</span> CPF</label>-->
-                <label class="browser-default">CPF</label>
+                <label class="browser-default">CPF (Primeiros 6 digitos)</label>
+                <span id="box_icone_busca">
+                    <i id="icone_busca" class="far fa-address-card text-white" onclick="sua_funcao_aqui()" style="color:white;font-size:20px"></i>
+                </span>
             </div>
         </div>
 
@@ -44,9 +77,13 @@
 
         <div class=" browser-default row center">
             <div class="browser-default label-float">
-                <input placeholder="  " id="password" class="browser-default" autocomplete="off" name="password" type="password" value="" maxlength="4">
+                <input placeholder="  " id="password" class="browser-default password" autocomplete="off" name="password" type="password" value="" maxlength="4">
                 <!--<label id="pass" for="password" style="font-size: 20px"><span style="color:red">*</span> Ano de Nascimento</label>-->
-                <label class="browser-default">Ano de Nascimento</label>
+
+                <label class="browser-default">Ano de nascimento</label>
+                <span id="box_icone_busca">
+                    <i type="button" id="icone_busca" class="far fa-eye-slash" onclick="mostrar(this)" style="font-size:20px"></i>
+                </span>
             </div>
         </div>
         
@@ -169,24 +206,24 @@
             <div class="input-field col s9 offset-s2">
                 <table class="row" id="keybord">
                     <tr> 
-                        <td><button type="button" name="num1" class="mb-10 btn-floating gradient-45deg-indigo-light-blue blue gradient-shadow btn-large waves-effect waves-light flow-text num" value="1" onclick="calcNum(1)"/>1</button></td>
-                        <td><button type="button" name="num2" class="mb-10 btn-floating gradient-45deg-indigo-light-blue blue gradient-shadow btn-large waves-effect waves-light flow-text num" value="2" onclick="calcNum(2)"/>2</button></td>
-                        <td><button type="button" name="num3" class="mb-10 btn-floating gradient-45deg-indigo-light-blue blue gradient-shadow btn-large waves-effect waves-light flow-text num" value="3" onclick="calcNum(3)"/>3</button></td>
+                        <td><button type="button" name="num1" class="btn-floating gradient-45deg-indigo-light-blue blue gradient-shadow btn-large waves-effect waves-light flow-text num" value="1" onclick="calcNum(1)"/>1</button></td>
+                        <td><button type="button" name="num2" class="btn-floating gradient-45deg-indigo-light-blue blue gradient-shadow btn-large waves-effect waves-light flow-text num" value="2" onclick="calcNum(2)"/>2</button></td>
+                        <td><button type="button" name="num3" class="btn-floating gradient-45deg-indigo-light-blue blue gradient-shadow btn-large waves-effect waves-light flow-text num" value="3" onclick="calcNum(3)"/>3</button></td>
                     </tr>  
                     <tr>
-                        <td><button type="button" name="num4" class="mb-10 btn-floating gradient-45deg-indigo-light-blue blue gradient-shadow btn-large waves-effect waves-light flow-text num" value="4" onclick="calcNum(4)"/>4</button></td>
-                        <td><button type="button" name="num5" class="mb-10 btn-floating gradient-45deg-indigo-light-blue blue gradient-shadow btn-large waves-effect waves-light flow-text num" value="5" onclick="calcNum(5)"/>5</button></td>
-                        <td><button type="button" name="num6" class="mb-10 btn-floating gradient-45deg-indigo-light-blue blue gradient-shadow btn-large waves-effect waves-light flow-text num" value="6" onclick="calcNum(6)"/>6</button></td>
+                        <td><button type="button" name="num4" class="btn-floating gradient-45deg-indigo-light-blue blue gradient-shadow btn-large waves-effect waves-light flow-text num" value="4" onclick="calcNum(4)"/>4</button></td>
+                        <td><button type="button" name="num5" class="btn-floating gradient-45deg-indigo-light-blue blue gradient-shadow btn-large waves-effect waves-light flow-text num" value="5" onclick="calcNum(5)"/>5</button></td>
+                        <td><button type="button" name="num6" class="btn-floating gradient-45deg-indigo-light-blue blue gradient-shadow btn-large waves-effect waves-light flow-text num" value="6" onclick="calcNum(6)"/>6</button></td>
                     </tr>  
                     <tr>
-                        <td><button type="button" name="num7" class="mb-10 btn-floating gradient-45deg-indigo-light-blue blue gradient-shadow btn-large waves-effect waves-light flow-text num" value="7" onclick="calcNum(7)"/>7</button></td>
-                        <td><button type="button" name="num8" class="mb-10 btn-floating gradient-45deg-indigo-light-blue blue gradient-shadow btn-large waves-effect waves-light flow-text num" value="8" onclick="calcNum(8)"/>8</button></td>
-                        <td><button type="button" name="num9" class="mb-10 btn-floating gradient-45deg-indigo-light-blue blue gradient-shadow btn-large waves-effect waves-light flow-text num" value="9" onclick="calcNum(9)"/>9</button></td>
+                        <td><button type="button" name="num7" class="btn-floating gradient-45deg-indigo-light-blue blue gradient-shadow btn-large waves-effect waves-light flow-text num" value="7" onclick="calcNum(7)"/>7</button></td>
+                        <td><button type="button" name="num8" class="btn-floating gradient-45deg-indigo-light-blue blue gradient-shadow btn-large waves-effect waves-light flow-text num" value="8" onclick="calcNum(8)"/>8</button></td>
+                        <td><button type="button" name="num9" class="btn-floating gradient-45deg-indigo-light-blue blue gradient-shadow btn-large waves-effect waves-light flow-text num" value="9" onclick="calcNum(9)"/>9</button></td>
                     </tr>  
                     <tr>
-                        <td><button id="backspace" type="button" name="limpar" class="mb-10 btn-floating gradient-45deg-red-pink  gradient-shadow btn-large waves-effect waves-light flow-text" onclick="backSpace()"/><i class="ion-backspace-outline"></i></button></td>
-                        <td><button type="button" name="num0"   class="mb-10 btn-floating gradient-45deg-indigo-light-blue blue gradient-shadow btn-large waves-effect waves-light flow-text num" value="0" onclick="calcNum(0)"/>0</button></td>
-                        <td><button type="submit" class="mb-10 btn-floating gradient-45deg-green-teal gradient-shadow btn-large waves-effect waves-light flow-text"><i class="ion-checkmark"></i></button></td>
+                        <td><button id="backspace" type="button" name="limpar" class="btn-floating gradient-45deg-red-pink  gradient-shadow btn-large waves-effect waves-light flow-text" onclick="backSpace()"/><i class="ion-backspace-outline"></i></button></td>
+                        <td><button type="button" name="num0"   class="btn-floating gradient-45deg-indigo-light-blue blue gradient-shadow btn-large waves-effect waves-light flow-text num" value="0" onclick="calcNum(0)"/>0</button></td>
+                        <td><button type="submit" class="btn-floating gradient-45deg-green-teal gradient-shadow btn-large waves-effect waves-light flow-text"><i class="ion-checkmark"></i></button></td>
                     </tr>        
                 </table>
             </div>
@@ -199,6 +236,26 @@
 @section('js')
 
 <script>
+
+    function mostrar(e) {
+    var tipo = e.parentNode.parentNode.querySelector("[name='password']");
+    if (tipo.type == "password") {
+      tipo.type = "text";
+    } else {
+      tipo.type = "password";
+    }
+
+    tipo.type = tipo.type; //aplica o tipo que ficou no primeiro campo
+
+    if (e.classList.contains("fa-eye")) { //se tem olho aberto
+      e.classList.remove("fa-eye"); //remove classe olho aberto
+      e.classList.add("fa-eye-slash"); //coloca classe olho fechado
+    } else { //senão
+      e.classList.remove("fa-eye-slash"); //remove classe olho fechado
+      e.classList.add("fa-eye"); //coloca classe olho aberto
+    }
+
+  }
 
     $(document).ready(function(){
         launch_toast();
@@ -213,8 +270,8 @@
     // Função que adiciona os números no Visor quando pressionado os botões
     function calcNum(num) {
         
-        if (document.form.username.value.length < 6) { 
-            document.form.username.value = document.form.username.value + num;
+        if (document.form.user.value.length < 6) { 
+            document.form.user.value = document.form.user.value + num;
              
         } else {
             //username.value = mascaraCpf(username.value);
