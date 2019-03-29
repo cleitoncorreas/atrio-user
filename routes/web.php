@@ -35,9 +35,14 @@ Route::group(['middleware'=>'auth'],function(){
     |---------------------------------------------------------------------------
     */
 
-    Route::get ('/services/key',    ['as'=>'services.key','uses'    =>'Site\KeyController@index']);
-    Route::get ('/services/key/in', ['as'=>'services.key.in','uses' =>'Site\KeyController@in']);
-    Route::get ('/services/key/out',['as'=>'services.key.out','uses'=>'Site\KeyController@out']);
+    Route::get ('/services/key',          ['as'=>'services.key','uses'          =>'Site\KeyController@index']);
+    Route::get ('/services/key/in',       ['as'=>'services.key.in','uses'       =>'Site\KeyController@in']);
+    Route::get ('/services/key/out',      ['as'=>'services.key.out','uses'      =>'Site\KeyController@out']);
+
+    Route::get ('/services/key/out/code', ['as'=>'services.key.out.code','uses' =>'Site\KeyController@code']);
+
+    Route::get ('/services/key/out/filter/place',['as'=>'services.key.out.filter.place','uses'=>'Site\KeyController@place']);
+    Route::get ('/services/key/out/filter/floor',['as'=>'services.key.out.filter.floor','uses'=>'Site\KeyController@floor']);
 
     /*
     |---------------------------------------------------------------------------
@@ -71,9 +76,9 @@ Route::group(['middleware'=>'auth'],function(){
     Route::get ('/services/car/out/list/drivers',      ['as'=>'services.car.out.list.drivers','uses'      =>'Site\CarController@driversList']);
     Route::post('/services/car/out/list/driver/select',['as'=>'services.car.out.list.driver.select','uses'=>'Site\CarController@driverSelect']);
     # DRIVER ALL
-    Route::get('/services/car/out/list/places',        ['as'=>'services.car.out.list.places','uses'       =>'Site\CarController@placesList']);
+    Route::get ('/services/car/out/list/places',       ['as'=>'services.car.out.list.places','uses'       =>'Site\CarController@placesList']);
     Route::post('/services/car/out/list/place/select', ['as'=>'services.car.out.list.place.select','uses' =>'Site\CarController@placeSelect']);
-    Route::get('/services/car/out/summary',            ['as'=>'services.car.out.summary','uses'           =>'Site\CarController@summary']);
+    Route::get ('/services/car/out/summary',           ['as'=>'services.car.out.summary','uses'           =>'Site\CarController@summary']);
     Route::post('/services/car/out/summary/confirm',   ['as'=>'services.car.out.summary.confirm','uses'   =>'Site\CarController@confirm']);
     Route::get ('/services/car/out/receipt',           ['as'=>'services.car.out.receipt','uses'           =>'Site\CarController@receipt']);
     Route::get ('/services/car/out/receipt/print',     ['as'=>'services.car.out.receipt.print','uses'     =>'Site\CarController@print']);

@@ -66,7 +66,7 @@
             <div class="browser-default label-float"> 
                 <input  placeholder=" " id="user" class="browser-default teste" autocomplete="off" name="username" type="text" value="" maxlength="6">
                 <!--<label id="user" for="username"  style="font-size: 20px"><span style="color:red">*</span> CPF</label>-->
-                <label class="browser-default">CPF (Primeiros 6 digitos)</label>
+                <label class="browser-default">CPF (6 primeiros digitos)</label>
                 <span id="box_icone_busca">
                     <i id="icone_busca" class="far fa-address-card text-white" onclick="sua_funcao_aqui()" style="color:white;font-size:20px"></i>
                 </span>

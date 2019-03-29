@@ -58,7 +58,7 @@
 
   @yield('css')
 
-  <body class="@yield('background','gradient-45deg-indigo-blue')" style="justify-content:center">
+  <body onselectstart="return false" ondragstart="return false" class="@yield('background','gradient-45deg-indigo-blue')" style="justify-content:center">
 
     
 

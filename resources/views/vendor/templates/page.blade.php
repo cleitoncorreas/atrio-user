@@ -22,6 +22,8 @@
             </div>
 
 
+            @yield('option')
+
             @switch($option)
                 @case('1')
                     <div class="animated zoomIn row center col s12 mb-3">

@@ -12,4 +12,14 @@ class KeyController extends Controller
         session(['service' => 'key']);
         return view('site.pages.services.key.index');
     }
+
+    public function in()
+    {
+        return view('site.pages.services.key.in.index');
+    }
+
+    public function out()
+    {
+        return view('site.pages.services.key.out.index');
+    }
 }
