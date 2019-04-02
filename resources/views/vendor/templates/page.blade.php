@@ -7,7 +7,7 @@
             <div class="row">
                 <div class="input-field col s12 mt-3">
                     <div class="@yield('animated-buttom-return','animated zoomIn')">
-                        <a style="visibility:@yield('button-return-visibility')" href="@yield('button-return-href')" class="btn-floating @yield('button-return-color','gradient-45deg-indigo-light-blue') gradient-shadow btn-large waves-effect waves-light"><i class="ion-android-arrow-back"></i></a>
+                        <a style="visibility:@yield('button-return-visibility')" href="@yield('button-return-href')" class="btn-floating @yield('button-return-color','gradient-45deg-indigo-blue') gradient-shadow btn-large waves-effect waves-light"><i class="ion-android-arrow-back"></i></a>
                     </div>
                     
                     <div class="animated pulse infinite center">
@@ -25,19 +25,147 @@
             @yield('option')
 
             @switch($option)
+
                 @case('1')
                     <div class="animated zoomIn row center col s12 mb-3">
-                        <a href="@yield('button-option1-href')" class="@yield('button-option1-color','gradient-45deg-indigo-light-blue') gradient-shadow btn-large z-depth-5 waves-effect waves-light border-round col s12">@yield('button-option1-name')<!--<i class="material-icons ml-6 left">cloud_download</i>--></a>
+                        <a href="@yield('button-option1-href')" class="@yield('button-option1-color','gradient-45deg-indigo-blue') gradient-shadow btn-large z-depth-5 waves-effect waves-light border-round col s12">@yield('button-option1-name')<!--<i class="material-icons ml-6 left">cloud_download</i>--></a>
                     </div>
                 @break
 
                 @case('2')
+
+                <style>
+        
+                    #toast {
+                    visibility: hidden;
+                    max-width: 50px;
+                    height: 50px;
+                    /*margin-left: -125px;*/
+                    margin: auto;
+                    background-color: #333;
+                    color: #fff;
+                    text-align: center;
+                    border-radius: 25px;
+                    
+                    position: fixed;
+                    z-index: 999;
+                    left: 0;right:0;
+                    bottom: 32px;
+                    font-size: 17px;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    }
+                    #toast #img {
+                        width: 50px;
+                        height: 50px;
+                        
+                        float: left;
+                    
+                        padding-top: 11px;
+                        padding-bottom: 30px;
+                        
+                        box-sizing: border-box;
+                    
+                        background-color: #2196f3;
+                        color: #fff;
+                        border-radius: 25px;
+                    
+                    }
+                    #toast #desc{
+                        
+                        color: #fff;
+                        padding: 16px;
+                        padding-top: 11px;
+                        
+                        overflow: hidden;
+                        white-space: nowrap;
+                    
+                    }
+                    
+                    #toast.show {
+                        visibility: visible;
+                        -webkit-animation: fadein 0.5s, expand 0.5s 0.5s,stay 3s 1s, shrink 0.5s 2s, fadeout 0.5s 2.5s;
+                        animation: fadein 0.5s, expand 0.5s 0.5s,stay 3s 1s, shrink 0.5s 4s, fadeout 0.5s 4.5s;
+                    }
+                    
+                    @-webkit-keyframes fadein {
+                        from {bottom: 0; opacity: 0;} 
+                        to {bottom: 30px; opacity: 1;}
+                    }
+                    
+                    @keyframes fadein {
+                        from {bottom: 0; opacity: 0;}
+                        to {bottom: 30px; opacity: 1;}
+                    }
+                    
+                    @-webkit-keyframes expand {
+                        from {min-width: 50px} 
+                        to {min-width: 350px;}
+                    }
+                    
+                    @keyframes expand {
+                        from {min-width: 50px}
+                        to {min-width: 350px;}
+                    }
+                    @-webkit-keyframes stay {
+                        from {min-width: 350px} 
+                        to {min-width: 350px}
+                    }
+                    
+                    @keyframes stay {
+                        from {min-width: 350px}
+                        to {min-width: 350px}
+                    }
+                    @-webkit-keyframes shrink {
+                        from {min-width: 350px;} 
+                        to {min-width: 50px;}
+                    }
+                    
+                    @keyframes shrink {
+                        from {min-width: 350px;} 
+                        to {min-width: 50px;}
+                    }
+                    
+                    @-webkit-keyframes fadeout {
+                        from {bottom: 30px; opacity: 1;} 
+                        to {bottom: 60px; opacity: 0;}
+                    }
+                    
+                    @keyframes fadeout {
+                        from {bottom: 30px; opacity: 1;}
+                        to {bottom: 60px; opacity: 0;}
+                    }    
+                    </style>
+
                     <div class="animated zoomIn row center col s12 mb-3">
-                        <a href="@yield('button-option1-href')" class="@yield('button-option1-color','gradient-45deg-indigo-light-blue') gradient-shadow btn-large z-depth-5 waves-effect waves-light border-round col s12">@yield('button-option1-name')</a>
+                        <a href="@yield('button-option1-href')" class="@yield('button-option1-color','gradient-45deg-indigo-blue') gradient-shadow btn-large z-depth-5 waves-effect waves-light border-round col s12">@yield('button-option1-name')</a>
                     </div>
                     <div class="animated zoomIn row center col s12 mb-3">
-                        <a href="@yield('button-option2-href')" class="@yield('button-option2-color','gradient-45deg-indigo-light-blue') gradient-shadow btn-large z-depth-5 waves-effect waves-light border-round col s12">@yield('button-option2-name')</a>
+                        <a href="@yield('button-option2-href')" class="@yield('button-option2-color','gradient-45deg-indigo-blue') gradient-shadow btn-large z-depth-5 waves-effect waves-light border-round col s12">@yield('button-option2-name')</a>
                     </div>
+
+                    @if (Session::has('alert-information'))
+                        <div id="toast">
+                            <div id="img" class="gradient-45deg-amber-amber">
+                                <i class="fas fa-exclamation" style="font-size:30px"></i>
+                            </div>
+                            <div id="desc"><span>{{ session('alert-information') }}</span></div>
+                        </div>
+                    @endif
+
+                    @section('js')
+                    <script>
+                        $(document).ready(function(){
+                            launch_toast();
+                        });
+
+                        function launch_toast() {
+                            var x = document.getElementById("toast")
+                            x.className = "show";
+                            setTimeout(function(){ x.className = x.className.replace("show", ""); }, 5000);
+                        }
+                    </script>
+                    @stop
                 @break
 
                 @case('3')
@@ -150,15 +278,15 @@
                     
                     <div class="animated zoomIn row center col s12 mb-3">
                         <i class="material-icons teal-text" style="position: absolute; top: -7px; right:2%; z-index:2">lens</i>
-                        <a href="@yield('button-option1-href')" class="@yield('button-option1-color','gradient-45deg-indigo-light-blue') gradient-shadow btn-large z-depth-5 waves-effect waves-light border-round col s12">@yield('button-option1-name')<!--</span><span class="badge badge pill float-right mt-2 red">30</span>--></a>
+                        <a href="@yield('button-option1-href')" class="@yield('button-option1-color','gradient-45deg-indigo-blue') gradient-shadow btn-large z-depth-5 waves-effect waves-light border-round col s12">@yield('button-option1-name')<!--</span><span class="badge badge pill float-right mt-2 red">30</span>--></a>
                     </div>
                     <div class="animated zoomIn row center col s12 mb-3">
                         <i class="material-icons orange-text" style="position: absolute; top: -7px; right:2%; z-index:2">lens</i>
-                        <a href="@yield('button-option2-href')" class="@yield('button-option2-color','gradient-45deg-indigo-light-blue') gradient-shadow btn-large z-depth-5 waves-effect waves-light border-round col s12">@yield('button-option2-name')</a>
+                        <a href="@yield('button-option2-href')" class="@yield('button-option2-color','gradient-45deg-indigo-blue') gradient-shadow btn-large z-depth-5 waves-effect waves-light border-round col s12">@yield('button-option2-name')</a>
                     </div>
                     <div class="animated zoomIn row center col s12 mb-3">
                         <i class="material-icons red-text" style="position: absolute; top: -7px; right:2%; z-index:2">lens</i>
-                        <a href="@yield('button-option3-href')" class="@yield('button-option3-color','gradient-45deg-indigo-light-blue') gradient-shadow btn-large z-depth-5 waves-effect waves-light border-round col s12">@yield('button-option3-name')</a>
+                        <a href="@yield('button-option3-href')" class="@yield('button-option3-color','gradient-45deg-indigo-blue') gradient-shadow btn-large z-depth-5 waves-effect waves-light border-round col s12">@yield('button-option3-name')</a>
                     </div>
 
                     @if (Session::has('alert-sucess'))

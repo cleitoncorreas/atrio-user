@@ -1,6 +1,11 @@
 @extends('vendor.templates.page',['option' => '2'])
 @section('background','gradient-45deg-indigo-purple')
 
+@if(Session::has('alert-information'))
+@section('animated-page','')
+@section('animated-buttom-return','')
+@endif
+
 <!------------------------------------------------------------------------------------------>
 
 <!--@@section('button-visibility','hidden')-->

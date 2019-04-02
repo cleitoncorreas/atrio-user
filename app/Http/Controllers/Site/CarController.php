@@ -53,7 +53,11 @@ class CarController extends Controller
     {
         session(['status' => 'ENTRADA']);
         $lists = eventosVeiculo::where('id_emissor','=',session('id_user'))->where('data_hora_entrada','=',null)->get();
-        return view('site.pages.services.car.in.index',compact('lists'));
+        if($lists->count() > 0) {
+            return view('site.pages.services.car.in.index',compact('lists'));
+        } else {
+            return redirect()->intended('services/car')->with('alert-information','Não existe devoluções em aberto!');
+        }
     }
 
     public function quiz($id)
