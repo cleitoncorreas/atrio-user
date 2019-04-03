@@ -22,12 +22,12 @@
             </div>
 
 
-            @yield('option')
+            @yield('gedgets')
 
             @switch($option)
 
                 @case('1')
-                    <div class="animated zoomIn row center col s12 mb-3">
+                    <div class="@yield('animated-option','animated zoomIn') row center col s12 mb-3">
                         <a href="@yield('button-option1-href')" class="@yield('button-option1-color','gradient-45deg-indigo-blue') gradient-shadow btn-large z-depth-5 waves-effect waves-light border-round col s12">@yield('button-option1-name')<!--<i class="material-icons ml-6 left">cloud_download</i>--></a>
                     </div>
                 @break
@@ -137,10 +137,10 @@
                     }    
                     </style>
 
-                    <div class="animated zoomIn row center col s12 mb-3">
+                    <div class="@yield('animated-option','animated zoomIn') row center col s12 mb-3">
                         <a href="@yield('button-option1-href')" class="@yield('button-option1-color','gradient-45deg-indigo-blue') gradient-shadow btn-large z-depth-5 waves-effect waves-light border-round col s12">@yield('button-option1-name')</a>
                     </div>
-                    <div class="animated zoomIn row center col s12 mb-3">
+                    <div class="@yield('animated-option','animated zoomIn') row center col s12 mb-3">
                         <a href="@yield('button-option2-href')" class="@yield('button-option2-color','gradient-45deg-indigo-blue') gradient-shadow btn-large z-depth-5 waves-effect waves-light border-round col s12">@yield('button-option2-name')</a>
                     </div>
 
@@ -276,15 +276,15 @@
                     </style>
                             
                     
-                    <div class="animated zoomIn row center col s12 mb-3">
+                    <div class="@yield('animated-option','animated zoomIn') row center col s12 mb-3">
                         <i class="material-icons teal-text" style="position: absolute; top: -7px; right:2%; z-index:2">lens</i>
                         <a href="@yield('button-option1-href')" class="@yield('button-option1-color','gradient-45deg-indigo-blue') gradient-shadow btn-large z-depth-5 waves-effect waves-light border-round col s12">@yield('button-option1-name')<!--</span><span class="badge badge pill float-right mt-2 red">30</span>--></a>
                     </div>
-                    <div class="animated zoomIn row center col s12 mb-3">
+                    <div class="@yield('animated-option','animated zoomIn') row center col s12 mb-3">
                         <i class="material-icons orange-text" style="position: absolute; top: -7px; right:2%; z-index:2">lens</i>
                         <a href="@yield('button-option2-href')" class="@yield('button-option2-color','gradient-45deg-indigo-blue') gradient-shadow btn-large z-depth-5 waves-effect waves-light border-round col s12">@yield('button-option2-name')</a>
                     </div>
-                    <div class="animated zoomIn row center col s12 mb-3">
+                    <div class="@yield('animated-option','animated zoomIn') row center col s12 mb-3">
                         <i class="material-icons red-text" style="position: absolute; top: -7px; right:2%; z-index:2">lens</i>
                         <a href="@yield('button-option3-href')" class="@yield('button-option3-color','gradient-45deg-indigo-blue') gradient-shadow btn-large z-depth-5 waves-effect waves-light border-round col s12">@yield('button-option3-name')</a>
                     </div>

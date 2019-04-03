@@ -4,6 +4,7 @@
 @if(Session::has('alert-information'))
 @section('animated-page','')
 @section('animated-buttom-return','')
+@section('animated-option','')
 @endif
 
 <!------------------------------------------------------------------------------------------>

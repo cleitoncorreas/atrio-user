@@ -22,4 +22,9 @@ class KeyController extends Controller
     {
         return view('site.pages.services.key.out.index');
     }
+
+    public function code()
+    {
+        return view('site.pages.services.key.out.code.index');
+    }
 }
