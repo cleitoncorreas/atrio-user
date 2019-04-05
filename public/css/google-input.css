@@ -81,3 +81,16 @@ body{
   color: rgba(0, 0, 0, 0.65);;
   }
 
+.label-float .border-teal:focus + label,
+.label-float .border-teal:not(:placeholder-shown) + label{
+  font-size: 13px;
+  top: 0;
+  color: teal;
+}
+
+.label-float .border-teal:focus,
+.label-float .border-teal:not(:placeholder-shown){
+  border: 2px solid teal;
+}
+
+

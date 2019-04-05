@@ -15,7 +15,7 @@
 <!------------------------------------------------------------------------------------------>
 
 @section('button-option1-href','services/key')
-@section('button-option1-color','gradient-45deg-cyan-light-green')
+@section('button-option1-color','gradient-45deg-green-teal')
 @section('button-option1-name','Chaves')
 
 <!------------------------------------------------------------------------------------------>

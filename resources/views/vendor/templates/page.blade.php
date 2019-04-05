@@ -648,9 +648,9 @@
                                         <div class="black-text switch mt-5">{{ $line->pergunta }}
                                             <label style="float: right;color:black">
                                                 @if($line->padrao == 'Y')
-                                                    <input type="checkbox" name="lists[]" class="objeto" value="{{ $line->id }}" checked="true">
+                                                    <input type="checkbox" name="lists[]" class="objeto" value="{{ $line->id }}" checked="checked">
                                                 @else 
-                                                    <input type="checkbox" name="lists[]" class="objeto" value="{{ $line->id }}" checked="false">
+                                                    <input type="checkbox" name="lists[]" class="objeto" value="{{ $line->id }}" >
                                                 @endif
                                                     Não
                                                 <span class="lever"></span>
