@@ -59,14 +59,13 @@
                 
         
             @if (Session::has('alert-danger'))
-
                 <div id="toast">
                     <div id="img" class="gradient-45deg-red-pink">
                         <i class="fas fa-user-times style="font-size:30px"></i>
                     </div>
                     <div id="desc"><span>{{ session('alert-danger') }}</span></div>
                 </div>
-                @endif
+            @endif
     
             @include('vendor.templates.gedgets.keyboardNumber')
 
@@ -125,8 +124,6 @@
             setTimeout(function(){ x.className = x.className.replace("show", ""); }, 5000);
         }
     
-
-    
         //apanhar todos os inputs
         let inputs = document.querySelectorAll(".pure-form input");
     
@@ -144,7 +141,6 @@
             }
         }
             
-    
         $("#backspace").click(function() {
             if ($('#password').val() == "") {
                 var el = $('#user');

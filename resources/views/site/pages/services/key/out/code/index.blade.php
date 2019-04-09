@@ -32,44 +32,40 @@
 @section('button-keyboardconfirm-color','gradient-45deg-indigo-blue')
 @section('gedgets')
 
-        <meta name="csrf-token" content="{{ csrf_token() }}">
-        
-        <form  name="form" class="browser-default pure-form" action="{{ route('login.in')}}" method="post">
-        @csrf
-              
-            <div class="browser-default row center">
-                <div class="browser-default label-float"> 
-                    <input  placeholder=" " id="user" class="browser-default border-teal" autocomplete="off" name="username" type="text" value="{{ old('username') }}" maxlength="6">
-                    <!--<label id="user" for="username"  style="font-size: 20px"><span style="color:red">*</span> CPF</label>-->
-                    <label class="browser-default">Código da Chave</label>
-                    <span id="box_icone_busca">
-                        <i id="icone_busca" class="far fa-address-card text-white" onclick="" style="color:white;font-size:20px"></i>
-                    </span>
-                </div>
-            </div>
-                
-        
-            @if (Session::has('alert-danger'))
-
-                <div id="toast">
-                    <div id="img" class="gradient-45deg-red-pink">
-                        <i class="fas fa-user-times style="font-size:30px"></i>
-                    </div>
-                    <div id="desc"><span>{{ session('alert-danger') }}</span></div>
-                </div>
-                @endif
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     
-            @include('vendor.templates.gedgets.keyboardNumber')
+    <form  name="form" class="browser-default pure-form" action="{{ route('login.in')}}" method="post">
+    @csrf
+            
+        <div class="browser-default row center">
+            <div class="browser-default label-float"> 
+                <input  placeholder=" " id="user" class="browser-default border-teal" autocomplete="off" name="username" type="text" value="{{ old('username') }}" maxlength="6">
+                <!--<label id="user" for="username"  style="font-size: 20px"><span style="color:red">*</span> CPF</label>-->
+                <label class="browser-default">Código da Chave</label>
+                <span id="box_icone_busca">
+                    <i id="icone_busca" class="far fa-address-card text-white" onclick="" style="color:white;font-size:20px"></i>
+                </span>
+            </div>
+        </div>
+            
+        @if (Session::has('alert-danger'))
+            <div id="toast">
+                <div id="img" class="gradient-45deg-red-pink">
+                    <i class="fas fa-user-times style="font-size:30px"></i>
+                </div>
+                <div id="desc"><span>{{ session('alert-danger') }}</span></div>
+            </div>
+        @endif
 
-        </form>
+        @include('vendor.templates.gedgets.keyboardNumber')
 
+    </form>
 @stop
 
 @section('js')
         
     <script>
     
-
         // Função que adiciona os números no Visor quando pressionado os botões
         function calcNum(num) {
             
@@ -97,4 +93,5 @@
         });
         
     </script>
+    
 @stop
