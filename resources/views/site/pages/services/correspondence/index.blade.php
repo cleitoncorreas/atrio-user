@@ -1,4 +1,4 @@
-@extends('vendor.templates.page',['option' => '2'])
+@extends('vendor.templates.page')
 @section('background','gradient-45deg-amber-amber')
 
 <!------------------------------------------------------------------------------------------>
@@ -25,3 +25,7 @@
 @section('button-option2-href','car/in')
 @section('button-option2-color','gradient-45deg-amber-amber')
 @section('button-option2-name','Devolver')
+
+@section('gedgets')
+    @include('vendor.templates.gedgets.button',['button'=>2])
+@stop

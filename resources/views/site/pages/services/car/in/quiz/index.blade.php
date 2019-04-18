@@ -1,4 +1,4 @@
-@extends('vendor.templates.page',['option' => '9'])
+@extends('vendor.templates.page')
 @section('background','gradient-45deg-indigo-purple')
 
 <!------------------------------------------------------------------------------------------>
@@ -13,3 +13,7 @@
 @section('title-grid', 'Questionário')
 @section('title-color','purple')
 @section('subtitle-grid', 'responda o questionário baixo')
+
+@section('gedgets')
+    @include('vendor.templates.gedgets.quiz')
+@stop

@@ -1,6 +1,10 @@
-@extends('vendor.templates.page',['option' => '3'])
+@extends('vendor.templates.page')
 
 <!------------------------------------------------------------------------------------------>
+
+@section('css')
+    <link href="{{asset('./css/toast.css')}}" type="text/css" rel="stylesheet">
+@stop
 
 <!--@@section('button-visibility','hidden')-->
 <!--@@section('button-return-color','')-->
@@ -29,3 +33,9 @@
 @section('button-option3-href','services/car')
 @section('button-option3-color','gradient-45deg-purple-deep-orange')
 @section('button-option3-name','Veículos')
+
+<!------------------------------------------------------------------------------------------>
+
+@section('gedgets')
+    @include('vendor.templates.gedgets.button',['button'=>3])
+@stop

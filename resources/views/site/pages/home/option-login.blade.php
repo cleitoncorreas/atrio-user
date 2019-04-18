@@ -1,4 +1,4 @@
-@extends('vendor.templates.page',['option' => '2'])
+@extends('vendor.templates.page')
 
 <!------------------------------------------------------------------------------------------>
 
@@ -23,6 +23,10 @@
 @section('button-option2-href','login')
 <!--@@section('button-option2-color','gradient-45deg-purple-deep-orange')-->
 @section('button-option2-name','CPF / Nascimento')
+
+@section('gedgets')
+    @include('vendor.templates.gedgets.button',['button'=>2])
+@stop
 
 @section('js')
     <script>

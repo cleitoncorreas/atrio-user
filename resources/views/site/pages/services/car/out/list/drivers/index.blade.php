@@ -21,3 +21,7 @@
 @section('form-action','driver/select')
 @section('form-input-name','id_motorista')
 @section('button-select-color','gradient-45deg-purple-deep-orange')
+
+@section('gedgets')
+    @include('vendor.templates.gedgets.carousel')
+@stop

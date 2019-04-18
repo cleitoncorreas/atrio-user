@@ -1,4 +1,4 @@
-@extends('vendor.templates.page',['option' => '8'])
+@extends('vendor.templates.page')
 @section('background','gradient-45deg-indigo-purple')
 
 <!------------------------------------------------------------------------------------------>
@@ -13,3 +13,7 @@
 @section('title-grid', 'Devolução')
 @section('title-color','purple')
 @section('subtitle-grid', 'encerre suas saídas de veiculos')
+
+@section('gedgets')
+    @include('vendor.templates.gedgets.list')
+@stop

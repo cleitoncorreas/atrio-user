@@ -25,3 +25,7 @@
 @section('button-option2-href','key/in')
 @section('button-option2-color','gradient-45deg-green-teal')
 @section('button-option2-name','Devolver')
+
+@section('gedgets')
+    @include('vendor.templates.gedgets.button',['button'=>2])
+@stop

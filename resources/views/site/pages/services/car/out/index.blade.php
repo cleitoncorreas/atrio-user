@@ -1,4 +1,4 @@
-@extends('vendor.templates.page',['option' => '2'])
+@extends('vendor.templates.page')
 @section('background','gradient-45deg-indigo-purple')
 
 <!------------------------------------------------------------------------------------------>
@@ -25,3 +25,7 @@
 @section('button-option2-href','out/driver/no')
 @section('button-option2-color','gradient-45deg-purple-deep-orange')
 @section('button-option2-name','Não')
+
+@section('gedgets')
+    @include('vendor.templates.gedgets.button',['button'=>2])
+@stop

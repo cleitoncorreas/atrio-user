@@ -25,3 +25,7 @@
 @section('button-option2-href','out/floor')
 @section('button-option2-color','gradient-45deg-green-teal')
 @section('button-option2-name','filtro por etapas')
+
+@section('gedgets')
+    @include('vendor.templates.gedgets.button',['button'=>2])
+@stop

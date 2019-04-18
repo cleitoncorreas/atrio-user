@@ -1,6 +1,6 @@
 <!--@@extends('vendor.templates.login')-->
 
-@extends('vendor.templates.page',['option' => ''])
+@extends('vendor.templates.page')
     
 @section('css')
     <link href="{{asset('./css/google-input.css')}}" type="text/css" rel="stylesheet">

@@ -1,4 +1,4 @@
-@extends('vendor.templates.page',['option' => '1'])
+@extends('vendor.templates.page')
 @section('button-reset-visibility','hidden')
 <!------------------------------------------------------------------------------------------>
 
@@ -18,3 +18,10 @@
 @section('button-option1-href','option-login')
 <!--@@section('button-option1.1-color','gradient-45deg-purple-deep-orange')-->
 @section('button-option1-name','Iniciar')
+
+<!------------------------------------------------------------------------------------------>
+
+@section('gedgets')
+    @include('vendor.templates.gedgets.button',['button'=>1])
+@stop
+
