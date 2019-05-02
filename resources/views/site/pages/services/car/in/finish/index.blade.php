@@ -22,7 +22,7 @@
 
 <!------------------------------------------------------------------------------------------>
 
-@section('button-option2-href','login/out')
+@section('button-option2-href','/login/out')
 @section('button-option2-color','gradient-45deg-purple-deep-orange')
 @section('button-option2-name','Encerrar')
 
