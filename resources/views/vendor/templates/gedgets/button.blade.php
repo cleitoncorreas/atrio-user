@@ -33,7 +33,7 @@
 @endswitch  
 
 @if (Session::has('alert-sucess'))
-    <div id="toast">
+    <div id="toast" style="bottom:-80px;">
         <div id="img" class="gradient-45deg-green-teal">
             <i class="fas fa-user-check" style="font-size:30px"></i>
         </div>

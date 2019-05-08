@@ -11,7 +11,11 @@
 
 <!--@@section('button-visibility','hidden')-->
 @section('button-return-color','gradient-45deg-purple-deep-orange')
-@section('button-return-href','/services')
+@section('button-return-href','../services')
+
+@section('css')
+    <link href="{{asset('./css/toast.css')}}" type="text/css" rel="stylesheet">
+@stop
 
 <!------------------------------------------------------------------------------------------>
 

@@ -3,7 +3,7 @@
 
 <!--@@section('button-visibility','hidden')-->
 @section('button-return-color','gradient-45deg-purple-deep-orange')
-@section('button-return-href','/services/car/out/list/cars')
+@section('button-return-href','../list/cars')
 
 @section('logo-avatar', './../../../../img/logo-menu/places.png')
 @section('title-grid', 'Localidades')
