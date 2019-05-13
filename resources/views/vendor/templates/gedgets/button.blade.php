@@ -35,7 +35,7 @@
 @if (Session::has('alert-sucess'))
     <div id="toast" style="bottom:-80px;">
         <div id="img" class="gradient-45deg-green-teal">
-            <i class="fas fa-user-check" style="font-size:30px"></i>
+            <i class="fas fa-user-check" style="font-size:24px"></i>
         </div>
         <div id="desc"><span>{{ session('alert-sucess') }}</span></div>
     </div>
@@ -44,7 +44,7 @@
 @if (Session::has('alert-information'))
     <div id="toast">
         <div id="img" class="gradient-45deg-amber-amber">
-            <i class="fas fa-exclamation" style="font-size:30px"></i>
+            <i class="fas fa-exclamation" style="font-size:24px"></i>
         </div>
         <div id="desc"><span>{{ session('alert-information') }}</span></div>
     </div>

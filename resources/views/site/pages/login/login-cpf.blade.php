@@ -61,7 +61,7 @@
             @if (Session::has('alert-danger'))
                 <div id="toast">
                     <div id="img" class="gradient-45deg-red-pink">
-                        <i class="fas fa-user-times style="font-size:30px"></i>
+                        <i class="fas fa-user-times" style="font-size:24px"></i>
                     </div>
                     <div id="desc"><span>{{ session('alert-danger') }}</span></div>
                 </div>
