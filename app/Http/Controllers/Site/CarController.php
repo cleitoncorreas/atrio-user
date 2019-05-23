@@ -106,6 +106,7 @@ class CarController extends Controller
     {
         session(['driverYn' => 'yes']);
         session(['driver' => session('user')]);
+        session(['id_driver' => session('id_user')]);
         return redirect()->intended('services/car/out/list/cars');
     }
 
