@@ -42,7 +42,7 @@
 @endif
 
 @if (Session::has('alert-information'))
-    <div id="toast">
+    <div id="toast" style="bottom:-100px;">
         <div id="img" class="gradient-45deg-amber-amber">
             <i class="fas fa-exclamation" style="font-size:24px"></i>
         </div>

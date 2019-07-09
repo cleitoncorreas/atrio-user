@@ -1,12 +1,6 @@
 @extends('vendor.templates.page')
 @section('background','gradient-45deg-indigo-purple')
 
-@if(Session::has('alert-information'))
-@section('animated-page','')
-@section('animated-buttom-return','')
-@section('animated-option','')
-@endif
-
 <!------------------------------------------------------------------------------------------>
 
 <!--@@section('button-visibility','hidden')-->
@@ -17,6 +11,11 @@
     <link href="{{asset('./css/toast.css')}}" type="text/css" rel="stylesheet">
 @stop
 
+<!--@@@if(Session::has('alert-information'))
+@@@section('animated-page','')
+@@@section('animated-buttom-return','')
+@@@section('animated-option','')
+@@@endif-->
 <!------------------------------------------------------------------------------------------>
 
 @section('logo-avatar', './../img/logo-menu/parking.png')
