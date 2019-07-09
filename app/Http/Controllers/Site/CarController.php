@@ -39,8 +39,8 @@ class CarController extends Controller
     */
     public function out()
     {
+        session(['status' => 'SAÍDA']);
         if((session('count_driver'))>0){
-            session(['status' => 'SAÍDA']);
             return view('site.pages.services.car.out.index');
         } else {
             session(['driverYn' => 'no']);
@@ -150,8 +150,9 @@ class CarController extends Controller
     public function carSelect(Request $request)
     {
         $veiculo = Veiculo::find($request->id_veiculo);
-        session(['car' => $veiculo->modelo]);
-        session(['id_car' => $veiculo->id]);
+        session(['car'      => $veiculo->modelo]);
+        session(['placa_car'=> $veiculo->placa]);
+        session(['id_car'   => $veiculo->id]);
         if((session('page'))=='summary'){
             return redirect()->route('services.car.out.summary');
         } else {
