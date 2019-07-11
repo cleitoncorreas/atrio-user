@@ -11,11 +11,11 @@
     <link href="{{asset('./css/toast.css')}}" type="text/css" rel="stylesheet">
 @stop
 
-<!--@@@if(Session::has('alert-information'))
-@@@section('animated-page','')
-@@@section('animated-buttom-return','')
-@@@section('animated-option','')
-@@@endif-->
+<!--@@if(Session::has('alert-information'))
+@@section('animated-page','')
+@@section('animated-buttom-return','')
+@@section('animated-option','')
+@@endif-->
 <!------------------------------------------------------------------------------------------>
 
 @section('logo-avatar', './../img/logo-menu/parking.png')

@@ -18,12 +18,16 @@
 
 <!------------------------------------------------------------------------------------------>
 
+@section('visible1','disabled')
+@section('visible-opacity1','opacity: 0.5')
 @section('button-option1-href','services/key')
 @section('button-option1-color','gradient-45deg-green-teal')
 @section('button-option1-name','Chaves')
 
 <!------------------------------------------------------------------------------------------>
 
+@section('visible2','disabled')
+@section('visible-opacity2','opacity: 0.5')
 @section('button-option2-href','services/correspondence')
 @section('button-option2-color','gradient-45deg-amber-amber')
 @section('button-option2-name','Correspondência')

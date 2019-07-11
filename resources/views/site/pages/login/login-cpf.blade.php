@@ -56,8 +56,7 @@
                     </span>
                 </div>
             </div>
-                
-        
+                        
             @if (Session::has('alert-danger'))
                 <div id="toast">
                     <div id="img" class="gradient-45deg-red-pink">

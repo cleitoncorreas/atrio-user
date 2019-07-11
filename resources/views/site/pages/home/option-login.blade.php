@@ -14,6 +14,8 @@
 
 <!------------------------------------------------------------------------------------------>
 
+@section('visible1','disabled')
+@section('visible-opacity1','opacity: 0.5')
 @section('button-option1-href','')
 <!--@@section('button-option1-color','gradient-45deg-purple-deep-orange')-->
 @section('button-option1-name','Biometria')
