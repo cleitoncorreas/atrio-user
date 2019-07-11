@@ -39,7 +39,7 @@ class CarController extends Controller
     */
     public function out()
     {
-        session(['status' => 'SAÍDA']);
+        session(['status' => 'SAÍDA DE VEÍCULO']);
         if((session('count_driver'))>0){
             return view('site.pages.services.car.out.index');
         } else {
@@ -51,7 +51,7 @@ class CarController extends Controller
 
     public function in()
     {
-        session(['status' => 'ENTRADA']);
+        session(['status' => 'ENTRADA DE VEÍCULO']);
         $lists = eventosVeiculo::where('id_emissor','=',session('id_user'))->where('data_hora_entrada','=',null)->get();
         if($lists->count() > 0) {
             return view('site.pages.services.car.in.index',compact('lists'));
@@ -170,7 +170,9 @@ class CarController extends Controller
     public function placeSelect(Request $request)
     {
         $localidade = Localidade::find($request->id_localidade);
-        session(['place' => $localidade->descricao]);
+        session(['place' => $localidade->sigla]);
+        session(['bairro' => $localidade->bairro]);
+        session(['city' => $localidade->cidade]);
         session(['id_place' => $localidade->id]);
         session(['page' => 'summary']);
         return redirect()->route('services.car.out.summary');

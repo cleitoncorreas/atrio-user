@@ -21,32 +21,34 @@
         <div style="text-align: center" class="center">
             <p class="margin">
                 <font size="2" face="Courier">
-                    EMISSOR: {{ mb_strtoupper(str_pad(Session::get('user'),47,".",STR_PAD_LEFT)) }}
+                    EMISSOR: {{ mb_strtoupper(str_pad(' ' . Session::get('user'),47,".",STR_PAD_LEFT)) }}
                 </font>
             </p>
             <p class="margin">
                 <font size="2" face="Courier">
-                    STATUS: {{ mb_strtoupper(str_pad(Session::get('status'),49,".",STR_PAD_LEFT)) }}
+                    SERVIÇO: {{ mb_strtoupper(str_pad(' ' . Session::get('status'),49,".",STR_PAD_LEFT)) }}
+                </font>
+            </p>
+            <!--<p class="margin">
+                <font size="2" face="Courier">
+                    SERVIÇO: {{ mb_strtoupper(str_pad(' ' . Session::get('service'),48,".",STR_PAD_LEFT)) }}
+                </font>
+            </p>-->
+            <p class="margin">
+                <font size="2" face="Courier">
+                    MOTORISTA: {{ mb_strtoupper(str_pad(' ' . Session::get('driver'),45,".",STR_PAD_LEFT)) }}
                 </font>
             </p>
             <p class="margin">
                 <font size="2" face="Courier">
-                    SERVIÇO: {{ mb_strtoupper(str_pad(Session::get('service'),48,".",STR_PAD_LEFT)) }}
+                    @php $car = ' ' . Session::get('car') . ' - ' . Session::get('placa_car') @endphp
+                    VEÍCULO: {{ mb_strtoupper(str_pad($car,47,".",STR_PAD_LEFT)) }}
                 </font>
             </p>
             <p class="margin">
                 <font size="2" face="Courier">
-                    MOTORISTA: {{ mb_strtoupper(str_pad(Session::get('driver'),45,".",STR_PAD_LEFT)) }}
-                </font>
-            </p>
-            <p class="margin">
-                <font size="2" face="Courier">
-                    VEÍCULO: {{ mb_strtoupper(str_pad(Session::get('car'),47,".",STR_PAD_LEFT)) }}
-                </font>
-            </p>
-            <p class="margin">
-                <font size="2" face="Courier">
-                    LOCALIDADE: {{ mb_strtoupper(str_pad(Session::get('place'),45,".",STR_PAD_LEFT)) }}
+                    @php $place = ' ' . Session::get('place') . ' - ' . Session::get('bairro') . ' / ' . Session::get('city') @endphp
+                    DESTINO: {{ mb_strtoupper(str_pad($place,47,".",STR_PAD_LEFT)) }}
                 </font>
             </p>
         </div>

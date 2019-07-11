@@ -33,12 +33,12 @@
             <img src="./../../../img/logo-menu/shield.png" width="40" height="40" style="top:11%"  class="left">{{ Session::get('user') }}
         </a>
     </div>
-    <div class="row mb-3">
+    <!--<div class="row mb-3">
         <a href="@yield('button-summary-service-href')" class="animated zoomInDown @yield('button-summary-service-color','gradient-45deg-indigo-light-blue') gradient-shadow btn-large z-depth-5 waves-effect waves-light border-round col s12">
             <img src="./../../../img/logo-menu/concierge.png" width="40" height="40" style="top:11%"  class="left">{{ Session::get('service') }}
         </a>
     </div>
-    <!--<div class="row mb-3">
+    <div class="row mb-3">
         <a href="@yield('button-summary-status-href')" class="animated zoomInDown @yield('button-summary-status-color','gradient-45deg-indigo-light-blue') gradient-shadow btn-large z-depth-5 waves-effect waves-light border-round col s12">
             <img src="./../../../img/logo-menu/parking.png" width="40" height="40" style="top:11%"  class="left">{{ Session::get('status') }}
         </a>
@@ -55,7 +55,7 @@
     </div>
     <div class="row mb-3">
         <a href="@yield('button-summary-place-href')" class="animated zoomInDown @yield('button-summary-place-color','gradient-45deg-indigo-light-blue') gradient-shadow btn-large z-depth-5 waves-effect waves-light border-round col s12">
-            <img src="./../../../img/logo-menu/places.png" width="40" height="40" style="top:11%"  class="left">{{ Session::get('place') }}
+            <img src="./../../../img/logo-menu/places.png" width="40" height="40" style="top:11%"  class="left">{{ Session::get('place') }} - {{ Session::get('bairro') }} / {{ Session::get('city') }}
         </a>
         @php $page @endphp
     </div>
