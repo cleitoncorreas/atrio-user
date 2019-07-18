@@ -2,6 +2,16 @@
 
 @section('body')
 
+    <!-- Modal Structure -->
+    <div id="modal1" class="modal bottom-sheet">
+        <div class="modal-content">
+             @include('vendor.templates.gedgets.keyboardNumber')
+        </div>
+        <!--<div class="modal-footer">
+           
+        </div>-->
+    </div>
+
     <div id="login-pag" class="row">
         <div class="@yield('animated-page','animated fadeInDown') col s12 z-depth-5 card-panel border-round" id="seletor">
             <div class="row">

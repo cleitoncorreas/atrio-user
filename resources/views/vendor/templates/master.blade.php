@@ -72,6 +72,7 @@
           <p class="white-text">Clique neste botão para reiniciar o processo a qualquer momento</p>
         </div>
       </div>
+      
 
     @yield('body')
 

@@ -34,7 +34,7 @@
               
             <div class="browser-default row center">
                 <div class="browser-default label-float"> 
-                    <input  placeholder=" " id="user" class="browser-default teste" autocomplete="off" name="username" type="text" value="{{ old('username') }}" maxlength="6">
+                    <input  href="#modal1" placeholder=" " id="user" class="modal-trigger browser-default teste" autocomplete="off" name="username" type="text" value="{{ old('username') }}" maxlength="6">
                     <!--<label id="user" for="username"  style="font-size: 20px"><span style="color:red">*</span> CPF</label>-->
                     <label class="browser-default">CPF (6 primeiros digitos)</label>
                     <span id="box_icone_busca">
@@ -45,9 +45,9 @@
     
             <br>
     
-            <div class=" browser-default row center">
+            <div class=" browser-default row center mb-10">
                 <div class="browser-default label-float">
-                    <input placeholder="  " id="password" class="browser-default password" autocomplete="off" name="password" type="password" value="{{ old('password') }}" maxlength="4">
+                    <input href="#modal1" placeholder="  " id="password" class="modal-trigger browser-default password" autocomplete="off" name="password" type="password" value="{{ old('password') }}" maxlength="4">
                     <!--<label id="pass" for="password" style="font-size: 20px"><span style="color:red">*</span> Ano de Nascimento</label>-->
     
                     <label class="browser-default">Ano de nascimento</label>
@@ -65,8 +65,10 @@
                     <div id="desc"><span>{{ session('alert-danger') }}</span></div>
                 </div>
             @endif
-    
-            @include('vendor.templates.gedgets.keyboardNumber')
+
+            <div class="@yield('animated-option','animated zoomIn') row center col s12 mb-3">
+                <button type="submit" class="@yield('button-option1-color','gradient-45deg-indigo-blue') gradient-shadow btn-large z-depth-5 waves-effect waves-light border-round col s12 @yield('visible1')" style="@yield('visible-opacity1')">Entrar</button>
+            </div>
 
         </form>
 
@@ -75,6 +77,23 @@
 @section('js')
         
     <script>
+
+        $('.modal').modal({
+            dismissible: true, // Modal can be dismissed by clicking outside of the modal
+            opacity: .5, // Opacity of modal background
+            inDuration: 300, // Transition in duration
+            outDuration: 200, // Transition out duration
+            startingTop: '4%', // Starting top style attribute
+            endingTop: '10%', // Ending top style attribute
+                ready: function(modal, trigger) { // Callback for Modal open. Modal and trigger parameters available.
+                    $('div#login-pag.row').addClass('up-login');
+                },
+                complete: function() { 
+                    $('div#login-pag.row').removeClass('up-login');
+                } // Callback for Modal close
+            }
+            
+        );
     
         function mostrar(e) {
             var tipo = e.parentNode.parentNode.querySelector("[name='password']");

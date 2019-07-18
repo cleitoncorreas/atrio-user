@@ -123,7 +123,11 @@ class CarController extends Controller
     */
     public function driversList()
     {
-        $lists = Motorista::all();
+        $eventOpen = eventosVeiculo::where('data_hora_entrada','=',null)->get();
+        foreach ($eventOpen as $driver) {
+            $data[] = $driver->id_motorista;
+        }
+        $lists = Motorista::whereNotIn('id_funcionario', $data)->get();
         $dir   = 'img\drivers';
         return view('site.pages.services.car.out.list.drivers.index',compact('lists','dir'));
     }
@@ -142,7 +146,11 @@ class CarController extends Controller
 
     public function carsList()
     {
-        $lists = Veiculo::all();
+        $eventOpen = eventosVeiculo::where('data_hora_entrada','=',null)->get();
+        foreach ($eventOpen as $car) {
+            $data[] = $car->id_veiculo;
+        }
+        $lists = Veiculo::whereNotIn('id', $data)->get();
         $dir   = 'img\cars';
         return view('site.pages.services.car.out.list.cars.index',compact('lists','dir'));
     }
