@@ -10,6 +10,7 @@
 @if(Session::has('alert-danger'))
 @section('animated-page','')
 @section('animated-buttom-return','')
+@section('animated-option','')
 @endif
 <!------------------------------------------------------------------------------------------>
 
@@ -67,7 +68,7 @@
             @endif
 
             <div class="@yield('animated-option','animated zoomIn') row center col s12 mb-3">
-                <button type="submit" class="@yield('button-option1-color','gradient-45deg-indigo-blue') gradient-shadow btn-large z-depth-5 waves-effect waves-light border-round col s12 @yield('visible1')" style="@yield('visible-opacity1')">Entrar</button>
+                <button  id="submit" type="submit" class="@yield('button-option1-color','gradient-45deg-indigo-blue') gradient-shadow btn-large z-depth-5 waves-effect waves-light border-round col s12 @yield('visible1')" style="@yield('visible-opacity1')">Entrar</button>
             </div>
 
         </form>
@@ -80,7 +81,7 @@
 
         $('.modal').modal({
             dismissible: true, // Modal can be dismissed by clicking outside of the modal
-            opacity: .5, // Opacity of modal background
+            opacity: 0, // Opacity of modal background
             inDuration: 300, // Transition in duration
             outDuration: 200, // Transition out duration
             startingTop: '4%', // Starting top style attribute
@@ -168,6 +169,10 @@
             var the_value = el.val();
             the_value = the_value.substring(0, the_value.length - 1);
             el.val(the_value);
+        });
+
+        $('#out').click(function(){
+            $('#submit').click();
         });
         
     </script>

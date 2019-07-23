@@ -39,14 +39,27 @@ class CarController extends Controller
     */
     public function out()
     {
-        session(['status' => 'SAÍDA DE VEÍCULO']);
-        if((session('count_driver'))>0){
-            return view('site.pages.services.car.out.index');
-        } else {
-            session(['driverYn' => 'no']);
-            return redirect()->intended('services/car/out/list/drivers');
+        $eventOpen = eventosVeiculo::where('data_hora_entrada','=',null)->get();
+        foreach ($eventOpen as $car) {
+            $data[] = $car->id_veiculo;
         }
+        $lists = Veiculo::whereNotIn('id', $data)->get();
+
+        if($lists->count()==0) {
+            return redirect()->intended('services/car')->with('alert-information','Não existe veículo disponível!');
+        } else {
+            
+            session(['status' => 'SAÍDA DE VEÍCULO']);
+            if((session('count_driver'))>0){
+                return view('site.pages.services.car.out.index');
+            } else {
+                session(['driverYn' => 'no']);
+                return redirect()->intended('services/car/out/list/drivers');
+            }
+        }
+
         
+
     }
 
     public function in()
@@ -151,8 +164,13 @@ class CarController extends Controller
             $data[] = $car->id_veiculo;
         }
         $lists = Veiculo::whereNotIn('id', $data)->get();
-        $dir   = 'img\cars';
-        return view('site.pages.services.car.out.list.cars.index',compact('lists','dir'));
+
+        if($lists->count()==0) {
+            return redirect()->intended('services/car')->with('alert-information','Não existe veículo disponível!');
+        } else {
+            $dir   = 'img\cars';
+            return view('site.pages.services.car.out.list.cars.index',compact('lists','dir'));
+        }
     }
 
     public function carSelect(Request $request)

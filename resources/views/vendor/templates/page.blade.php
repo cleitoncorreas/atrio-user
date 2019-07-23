@@ -3,7 +3,7 @@
 @section('body')
 
     <!-- Modal Structure -->
-    <div id="modal1" class="modal bottom-sheet">
+    <div id="modal1" class="modal bottom-sheet black-overlay">
         <div class="modal-content">
              @include('vendor.templates.gedgets.keyboardNumber')
         </div>

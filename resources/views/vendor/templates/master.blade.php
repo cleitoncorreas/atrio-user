@@ -63,7 +63,7 @@
     
 
       <div style="bottom: 50px; right: 50px;visibility:@yield('button-reset-visibility')" class="fixed-action-btn direction-top">
-        <a id="menu" href="{{ route('login.out') }}" class="btn-floating waves-effect waves-light btn-large white gradient-shadow z-depth-5"><i class="black-text fa-spin ion-load-c"></i></a>
+        <a id="menu" href="{{ route('login.out') }}" class="btn-floating waves-effect waves-light btn-large white gradient-shadow z-depth-5"><i class="black-text ion-android-arrow-back"></i></a>
       </div>
 
       <div class="tap-target gradient-45deg-purple-deep-orange" data-activates="menu">

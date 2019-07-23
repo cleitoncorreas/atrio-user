@@ -10,6 +10,8 @@
 <!--@@section('button-return-color','')-->
 @section('button-return-href','login/out')
 
+
+
 <!------------------------------------------------------------------------------------------>
 
 @section('logo-avatar', './img/logo-menu/concierge.png')
@@ -42,4 +44,27 @@
 
 @section('gedgets')
     @include('vendor.templates.gedgets.button',['button'=>3])
+
+    @if (Session::has('alert-sucess'))
+        <div id="toast" style="bottom:-200px;">
+            <div id="img" class="gradient-45deg-green-teal">
+                <i class="fas fa-user-check" style="font-size:24px"></i>
+            </div>
+            <div id="desc"><span>{{ session('alert-sucess') }}</span></div>
+        </div>
+    @endif
+@stop
+
+@section('js')
+    <script>
+        $(document).ready(function(){
+            launch_toast();
+        });
+
+        function launch_toast() {
+            var x = document.getElementById("toast")
+            x.className = "show";
+            setTimeout(function(){ x.className = x.className.replace("show", ""); }, 5000);
+        }
+    </script>
 @stop

@@ -32,25 +32,25 @@
 
 @endswitch  
 
-@if (Session::has('alert-sucess'))
+<!--@@if (Session::has('alert-sucess'))
     <div id="toast" style="bottom:-80px;">
         <div id="img" class="gradient-45deg-green-teal">
             <i class="fas fa-user-check" style="font-size:24px"></i>
         </div>
         <div id="desc"><span>{{ session('alert-sucess') }}</span></div>
     </div>
-@endif
+@@endif
 
-@if (Session::has('alert-information'))
+@@if (Session::has('alert-information'))
     <div id="toast" style="bottom:-80px;">
         <div id="img" class="gradient-45deg-amber-amber">
             <i class="fas fa-exclamation" style="font-size:24px"></i>
         </div>
         <div id="desc"><span>{{ session('alert-information') }}</span></div>
     </div>
-@endif
+@@endif
 
-@section('js')
+@@section('js')
     <script>
         $(document).ready(function(){
             launch_toast();
@@ -62,4 +62,4 @@
             setTimeout(function(){ x.className = x.className.replace("show", ""); }, 5000);
         }
     </script>
-@stop
+@@stop-->
