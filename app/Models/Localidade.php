@@ -13,6 +13,7 @@ class Localidade extends Model
         'descricao',
         'endereco',
         'cidade',
-        'telefone'
+        'telefone',
+        'bairro'
     ];
 }

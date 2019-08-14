@@ -25,7 +25,7 @@
                             <img src="../../img/cars/{{ $line->veiculo->foto }}" alt="" class="circle z-depth-0 responsive-img avatar mt-3" style=" z-index: 0; border-radius:50%;border:2px solid black;">
                             <img src="../../img/drivers/{{ $line->motorista->foto }}" alt="" class="circle z-depth-0 responsive-img avatar mt-2 ml-4" style=" z-index: 1;width: 50px;height:50px; border-radius:50%;border:2px solid black;">
                             <img src="../../img/places/{{ $line->localidade->foto }}" alt="" class="circle z-depth-0 responsive-img avatar mt-3 ml-9" style=" z-index: 0; border-radius:50%;border:2px solid black;">
-                            <span class="title ml-10 flow-text">Local: {{ $line->localidade->sigla }} | {{ ucwords(strtolower($line->localidade->bairro)) }}</span>
+                            <span class="title ml-10 flow-text">Local: {{ $line->localidade->sigla }} | {{ ucwords(strtolower($line->localidade->bairro)) }} - {{ $line->localidade->cidade }}/{{ $line->localidade->uf }}</span>
                             <p class="ml-10 ">Veiculo: {{ $line->veiculo->modelo }} | {{ $line->veiculo->placa }} <br>
                                 Motorista: {{ ucwords(strtolower($line->motorista->funcionario->nome)) }}
                             </p>
