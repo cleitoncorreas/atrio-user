@@ -147,7 +147,7 @@
         let inputs = document.querySelectorAll(".pure-form input");
     
         for (let i = 0; i < inputs.length; ++i){
-        inputs[i].onkeyup=function(evento){ //construir o onkey para cada um
+            inputs[i].onkeyup=function(evento){ //construir o onkey para cada um
     
                 if (evento.key == "Backspace"){ //se for backspace estamos a apagar
                     if (i > 0 && this.value.length == 0){ //se não for o 1º e se tiver vazio
