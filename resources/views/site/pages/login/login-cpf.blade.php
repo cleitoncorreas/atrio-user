@@ -20,7 +20,7 @@
 
 <!------------------------------------------------------------------------------------------>
 
-@section('logo-avatar', './img/logo-menu/shield.png')
+@section('logo-avatar', './../../public/img/logo-menu/shield.png')
 @section('title-grid', 'Identifique-se!')
 @section('subtitle-grid', 'digite seus dados')
 

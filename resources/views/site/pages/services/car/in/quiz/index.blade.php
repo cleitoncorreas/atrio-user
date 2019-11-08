@@ -9,7 +9,7 @@
 
 <!------------------------------------------------------------------------------------------>
 
-@section('logo-avatar', './../../../../img/logo-menu/question-login.png')
+@section('logo-avatar', './../../../../../public/img/logo-menu/question-login.png')
 @section('title-grid', 'Questionário')
 @section('title-color','purple')
 @section('subtitle-grid', 'responda o questionário baixo')

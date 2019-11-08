@@ -5,7 +5,7 @@
 @section('button-return-color','gradient-45deg-purple-deep-orange')
 @section('button-return-href','../list/cars')
 
-@section('logo-avatar', './../../../../img/logo-menu/places.png')
+@section('logo-avatar', './../../../../../public/img/logo-menu/places.png')
 @section('title-grid', 'Localidades')
 @section('title-color','purple')
 @section('subtitle-grid', 'selecione a localidade desejada')

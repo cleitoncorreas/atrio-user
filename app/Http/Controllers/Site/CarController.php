@@ -39,11 +39,15 @@ class CarController extends Controller
     */
     public function out()
     {
+        $data = [];
+
         $eventOpen = eventosVeiculo::where('data_hora_entrada','=',null)->get();
+
         foreach ($eventOpen as $car) {
             $data[] = $car->id_veiculo;
         }
-        $lists = Veiculo::whereNotIn('id', $data)->get();
+
+        $lists = Veiculo::where('id',$data)->get();
 
         if($lists->count()==0) {
             return redirect()->intended('services/car')->with('alert-information','Não existe veículo disponível!');
@@ -82,6 +86,7 @@ class CarController extends Controller
 
     public function quizPost(Request $request, eventosQuestionario $eventos_questionarios)
     {
+        date_default_timezone_set("America/Sao_Paulo");
         $questions = [];
 
         if(isset($request->lists)){
@@ -99,7 +104,7 @@ class CarController extends Controller
             $eventos_questionarios->insert($questions);
         }
 
-        eventosVeiculo::find($request->id_evento)->update(['data_hora_entrada' => now()]);
+        eventosVeiculo::find($request->id_evento)->update(['data_hora_entrada' => date('Y-m-d H:i:s')]);
 
         return redirect()->route('services.car.in.finish');
 
@@ -136,13 +141,19 @@ class CarController extends Controller
     */
     public function driversList()
     {
+        $data = [];
+
         $eventOpen = eventosVeiculo::where('data_hora_entrada','=',null)->get();
+
         foreach ($eventOpen as $driver) {
             $data[] = $driver->id_motorista;
         }
+
         $lists = Motorista::whereNotIn('id_funcionario', $data)->get();
         $dir   = 'img\drivers';
         return view('site.pages.services.car.out.list.drivers.index',compact('lists','dir'));
+
+        
     }
 
     public function driverSelect(Request $request)
@@ -159,6 +170,8 @@ class CarController extends Controller
 
     public function carsList()
     {
+        $data = [];
+
         $eventOpen = eventosVeiculo::where('data_hora_entrada','=',null)->get();
         foreach ($eventOpen as $car) {
             $data[] = $car->id_veiculo;
@@ -216,13 +229,14 @@ class CarController extends Controller
 
     public function confirm(Request $request)
     {
+        date_default_timezone_set("America/Sao_Paulo");
         
         $evento_veiculo = new eventosVeiculo();
         $evento_veiculo->id_emissor        = session('id_user');
         $evento_veiculo->id_motorista      = session('id_driver');
         $evento_veiculo->id_veiculo        = session('id_car');
         $evento_veiculo->id_localidade     = session('id_place');
-        $evento_veiculo->data_hora_saida   = now();
+        $evento_veiculo->data_hora_saida   = date('Y-m-d h:i:s');
         $evento_veiculo->data_hora_entrada = null;
         $evento_veiculo->timestamps = false; 
         $evento_veiculo->save();

@@ -5,7 +5,7 @@
 @section('button-return-color','gradient-45deg-purple-deep-orange')
 @section('button-return-href','../out/list/places')
 
-@section('logo-avatar', './../../../img/logo-menu/summary2.png')
+@section('logo-avatar', './../../../../public/img/logo-menu/summary2.png')
 @section('title-grid', 'Você confirma?')
 @section('title-color','purple')
 @section('subtitle-grid', 'resumo das informações selecionadas')
@@ -30,7 +30,7 @@
 <div class="row center col s12">
     <div class="row mb-3">
         <a href="@yield('button-summary-login-href')" class="animated zoomInDown @yield('button-summary-login-color','gradient-45deg-indigo-light-blue') gradient-shadow btn-large z-depth-5 waves-effect waves-light border-round col s12">
-            <img src="./../../../img/logo-menu/shield.png" width="40" height="40" style="top:11%"  class="left">{{ Session::get('user') }}
+            <img src="./../../../../public/img/logo-menu/shield.png" width="40" height="40" style="top:11%"  class="left">{{ Session::get('user') }}
         </a>
     </div>
     <!--<div class="row mb-3">
@@ -45,17 +45,17 @@
     </div>-->
     <div class="row mb-3">
         <a href="@yield('button-summary-driver-href')" class="animated zoomInDown @yield('button-summary-driver-color','gradient-45deg-indigo-light-blue') gradient-shadow btn-large z-depth-5 waves-effect waves-light border-round col s12">
-            <img src="./../../../img/logo-menu/driver.png" width="40" height="40" style="top:11%"  class="left">{{ Session::get('driver') }}
+            <img src="./../../../../public/img/logo-menu/driver.png" width="40" height="40" style="top:11%"  class="left">{{ Session::get('driver') }}
         </a>
     </div>
     <div class="row mb-3">
         <a href="@yield('button-summary-car-href')" class="animated zoomInDown @yield('button-summary-car-color','gradient-45deg-indigo-light-blue') gradient-shadow btn-large z-depth-5 waves-effect waves-light border-round col s12">
-            <img src="./../../../img/logo-menu/cars.png" width="40" height="40" style="top:11%"  class="left">{{ Session::get('car') }} - {{ Session::get('placa_car') }}
+            <img src="./../../../../public/img/logo-menu/cars.png" width="40" height="40" style="top:11%"  class="left">{{ Session::get('car') }} - {{ Session::get('placa_car') }}
         </a>
     </div>
     <div class="row mb-3">
         <a href="@yield('button-summary-place-href')" class="animated zoomInDown @yield('button-summary-place-color','gradient-45deg-indigo-light-blue') gradient-shadow btn-large z-depth-5 waves-effect waves-light border-round col s12">
-            <img src="./../../../img/logo-menu/places.png" width="40" height="40" style="top:11%"  class="left">{{ Session::get('place') }} - {{ Session::get('bairro') }} / {{ Session::get('city') }}
+            <img src="./../../../../public/img/logo-menu/places.png" width="40" height="40" style="top:11%"  class="left">{{ Session::get('place') }} - {{ Session::get('bairro') }} / {{ Session::get('city') }}
         </a>
         @php $page @endphp
     </div>

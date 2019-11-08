@@ -19,7 +19,7 @@
 
 <!------------------------------------------------------------------------------------------>
 
-@section('logo-avatar', './../img/logo-menu/parking.png')
+@section('logo-avatar', './../../public/img/logo-menu/parking.png')
 @section('title-grid', 'Saída | Entrada')
 @section('title-color','purple')
 @section('subtitle-grid', 'selecione a opção desejada')

@@ -9,7 +9,7 @@
 
 <!------------------------------------------------------------------------------------------>
 
-@section('logo-avatar', './../../img/logo-menu/out.png')
+@section('logo-avatar', './../../../public/img/logo-menu/out.png')
 @section('title-grid', 'Devolução')
 @section('title-color','purple')
 @section('subtitle-grid', 'encerre suas saídas de veiculos')

@@ -10,7 +10,7 @@
     @section('button-return-href','../../../../services/car')
 @endif
 
-@section('logo-avatar', './../../../../img/logo-menu/drivers.png')
+@section('logo-avatar', './../../../../../public/img/logo-menu/drivers.png')
 @section('title-grid', 'Motoristas')
 @section('title-color','purple')
 @section('subtitle-grid', 'Selecione o motorista abaixo')

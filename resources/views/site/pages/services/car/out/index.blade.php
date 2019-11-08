@@ -9,7 +9,7 @@
 
 <!------------------------------------------------------------------------------------------>
 
-@section('logo-avatar', './../../img/logo-menu/question-driver.png')
+@section('logo-avatar', './../../public/img/logo-menu/question-driver.png')
 @section('title-grid', 'Será o motorista?')
 @section('title-color','purple')
 @section('subtitle-grid', 'selecione uma das opções abaixo')

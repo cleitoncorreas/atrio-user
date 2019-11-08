@@ -9,7 +9,7 @@
 
 <!------------------------------------------------------------------------------------------>
 
-@section('logo-avatar', './../../../img/logo-menu/finish.png')
+@section('logo-avatar', './../../../../public/img/logo-menu/finish.png')
 @section('title-grid', 'Parabéns!')
 @section('title-color','purple')
 @section('subtitle-grid', 'registro realizado com sucesso')

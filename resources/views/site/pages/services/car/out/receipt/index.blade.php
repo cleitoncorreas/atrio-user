@@ -3,7 +3,7 @@
 
 @section('button-return-visibility','hidden')
 
-@section('logo-avatar', './../../../img/logo-menu/receipt.png')
+@section('logo-avatar', './../../../../public/img/logo-menu/receipt.png')
 @section('title-grid', 'Comprovante')
 @section('title-color','purple')
 @section('subtitle-grid', 'Apresente na garagem ')

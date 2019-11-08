@@ -16,7 +16,7 @@
                 <ul class="container collection" style="max-height: 340px">
                     @foreach ($lists as $key => $line)
                         <li class="collection-item animate fadeUp delay-{{ $key }} avatar">
-                            <img src="./../../../../img/logo-quiz/{{ $line->foto }}" alt="" class="circle z-depth-0 responsive-img avatar mt-2" style="border-radius:50%;border:2px solid black;">
+                            <img src="./../../../../../public/img/logo-quiz/{{ $line->foto }}" alt="" class="circle z-depth-0 responsive-img avatar mt-2" style="border-radius:50%;border:2px solid black;">
                             <div class="black-text switch mt-5">{{ $line->pergunta }}
                                 <label style="float: right;color:black">
                                     @if($line->padrao == 'Y')

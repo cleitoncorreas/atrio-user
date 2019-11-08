@@ -14,7 +14,7 @@
 
 <!------------------------------------------------------------------------------------------>
 
-@section('logo-avatar', './img/logo-menu/concierge.png')
+@section('logo-avatar', './../../public/img/logo-menu/concierge.png')
 @section('title-grid', 'Como posso ajudar?')
 @section('subtitle-grid', 'selecione o serviço desejado')
 

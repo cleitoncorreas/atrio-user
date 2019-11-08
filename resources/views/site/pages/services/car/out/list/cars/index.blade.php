@@ -15,7 +15,7 @@
 
 @endif
 
-@section('logo-avatar', './../../../../img/logo-menu/cars.png')
+@section('logo-avatar', './../../../../../public/img/logo-menu/cars.png')
 @section('title-grid', 'Veículos')
 @section('subtitle-grid', 'Selecione o veículo desejado')
 

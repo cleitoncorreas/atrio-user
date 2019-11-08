@@ -8,7 +8,7 @@
 
 <!------------------------------------------------------------------------------------------>
 
-@section('logo-avatar', './img/logo-menu/question-login.png')
+@section('logo-avatar', './../../public/img/logo-menu/question-login.png')
 @section('title-grid', 'Quem é você?')
 @section('subtitle-grid', 'Selecione uma opção de identificação')
 

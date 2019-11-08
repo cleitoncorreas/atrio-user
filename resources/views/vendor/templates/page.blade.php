@@ -21,7 +21,7 @@
                     </div>
                     
                     <div class="animated pulse infinite center">
-                        <img src="@yield('logo-avatar','./img/logo-menu/default.png')" alt="" class="responsive-img valign" id="ico-menu" id="seletor">
+                        <img src="@yield('logo-avatar','./../../public/img/logo-menu/default.png')" alt="" class="responsive-img valign" id="ico-menu" id="seletor">
                     </div>
                   <!--<p class="center login-form-text">@yield('title-grid')</p>-->
                 </div>
