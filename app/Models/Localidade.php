@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Localidade extends Model
 {
-    protected $connection = 'another';
+    protected $connection = 'mysql';
 
     protected $fillable = [
         'foto',

@@ -47,7 +47,7 @@ class CarController extends Controller
             $data[] = $car->id_veiculo;
         }
 
-        $lists = Veiculo::where('id',$data)->get();
+        $lists = Veiculo::whereNotIn('id',$data)->get();
 
         if($lists->count()==0) {
             return redirect()->intended('services/car')->with('alert-information','Não existe veículo disponível!');

@@ -13,7 +13,7 @@
 <div class="row offset-s2 mb-3" style="padding-left:30px; padding-right:30px">
     <div id="div-print" class="card-panel col s12 lime accent-1 z-depth-3 black-text">
         <div class="center">
-            <p style="text-align: center"><b><font size="4" face="Courier">LEGIÃO DA BOA VONTADE</font></b></p>
+            <p style="text-align: center"><b><font size="4" face="Courier">GARAGEM GRANDE RIO</font></b></p>
         </div>
         <div class="center">
             <p style="text-align: center"><font size="2" face="Courier">COMPROVANTE DE REGISTRO DE RETIRADA DE VEÍCULOS</font></p>
